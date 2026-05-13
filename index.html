@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEE YOU — очі там, де потрібно тобі</title>
+  <meta name="description" content="Сервіс присутності. Знайдіть людину, яка зробить це поруч з обʼєктом: огляне авто перед покупкою, проконтролює ремонт, передасть документи." />
+  <meta property="og:title" content="SEE YOU — очі там, де потрібно тобі" />
+  <meta property="og:description" content="Сервіс присутності. Знайдіть людину, яка зробить це поруч з обʼєктом." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://see-you.app/" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232d6cdf'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' font-weight='800' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">S</span>
+      <span>SEE YOU</span>
+    </a>
+    <button class="nav-burger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#how">Як працює</a>
+      <a href="#categories">Категорії</a>
+      <a href="#safety">Безпека</a>
+      <a href="#faq">FAQ</a>
+      <a href="/contacts.html">Контакти</a>
+      <a class="nav-cta" href="https://see-you-frontend.pages.dev">Відкрити застосунок</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">Сервіс присутності в Україні</span>
+    <h1>Очі там, де потрібно тобі</h1>
+    <p class="hero-sub">
+      Знайдіть людину, яка зробить це поруч з обʼєктом: огляне авто перед покупкою,
+      проконтролює ремонт, передасть документи або зніме подію в іншому місті.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://see-you-frontend.pages.dev">Замовити перевірку</a>
+      <a class="btn btn-secondary" href="https://see-you-frontend.pages.dev">Стати виконавцем</a>
+    </div>
+    <div class="hero-trust">
+      <span>Верифікація через Дію</span>
+      <span>Сейф для коштів</span>
+      <span>Рейтинги і відгуки</span>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="container">
+    <div class="section-head">
+      <h2>Як це працює</h2>
+      <p>Три прості кроки від ідеї до результату. Без зайвих дзвінків і ризику.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Створіть запит</h3>
+        <p>Оберіть категорію, опишіть, що саме треба зробити, де і коли. Вкажіть бюджет або позначте «договірна».</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Оберіть виконавця</h3>
+        <p>Перегляньте пропозиції, рейтинги, відгуки. Зв'яжіться в захищеному чаті і затвердьте умови.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Отримайте результат</h3>
+        <p>Фото, відео або підтвердження від виконавця. Кошти переказуються після того, як ви підтвердите виконання.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Що можна замовити</h2>
+      <p>Шість основних сценаріїв. Якщо вашого нема в списку — оберіть «Інше» і опишіть деталі.</p>
+    </div>
+    <div class="cats">
+      <div class="cat">
+        <div class="cat-emoji">🚗</div>
+        <h3>Огляд перед покупкою</h3>
+        <p>Авто, мотоцикл, техніка з оголошень. Виконавець під'їде, огляне, зробить фото та коротке відео.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-emoji">🏠</div>
+        <h3>Показати місце</h3>
+        <p>Квартира, ділянка, офіс перед орендою або купівлею. Особливо для тих, хто за кордоном.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-emoji">📰</div>
+        <h3>Подія наживо</h3>
+        <p>Швидка зйомка події в іншому місті — для журналістів, ЗМІ та особистих потреб.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-emoji">🔨</div>
+        <h3>Контроль робіт</h3>
+        <p>Перевірка етапів ремонту, будівництва, доставки матеріалів. Регулярні фото-звіти.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-emoji">📦</div>
+        <h3>Доручення</h3>
+        <p>Передати документи, забрати посилку, віднести ключі. Невеликі завдання поруч.</p>
+      </div>
+      <div class="cat">
+        <div class="cat-emoji">💡</div>
+        <h3>Інше</h3>
+        <p>Будь-яке інше завдання, яке вимагає фізичної присутності людини в конкретному місці.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="safety">
+  <div class="container">
+    <div class="section-head">
+      <h2>Безпека з обох сторін</h2>
+      <p>Сервіс побудований так, щоб обидві сторони були захищені від обману, спаму і шахрайства.</p>
+    </div>
+    <div class="safety">
+      <div class="safety-item">
+        <div class="safety-icon">🪪</div>
+        <div>
+          <h3>Верифікація через Дію</h3>
+          <p>Кожен користувач проходить перевірку особи. Анонімних акаунтів немає.</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">🔒</div>
+        <div>
+          <h3>Сейф для коштів</h3>
+          <p>Оплата зберігається на захищеному рахунку до підтвердження виконання роботи.</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">💬</div>
+        <div>
+          <h3>Захищений чат</h3>
+          <p>Автоматичний фільтр блокує спроби обміну номерами, посиланнями та переходу в месенджери.</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">⭐</div>
+        <div>
+          <h3>Рейтинги і відгуки</h3>
+          <p>Обидві сторони залишають відгук після кожного замовлення. Репутація прозора.</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">🚫</div>
+        <div>
+          <h3>Заборонений зміст</h3>
+          <p>Дорослий контент, зйомка людей без згоди, військові об'єкти та незаконна діяльність — заборонено.</p>
+        </div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-icon">📞</div>
+        <div>
+          <h3>Підтримка</h3>
+          <p>Зв'язатися з нами можна напряму: email, телефон, чат у застосунку.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Поширені запитання</h2>
+    </div>
+    <div class="faq">
+      <details class="qa">
+        <summary>Скільки коштує замовлення?</summary>
+        <p>Ціна — між замовником і виконавцем. Замовник вказує бюджет або обирає «договірну». Виконавці подають пропозиції, замовник обирає підходящу.</p>
+      </details>
+      <details class="qa">
+        <summary>Як проходить оплата?</summary>
+        <p>Оплата картою через захищений шлюз. Кошти зберігаються у сейфі сервісу і переказуються виконавцю після того, як замовник підтвердив виконання.</p>
+      </details>
+      <details class="qa">
+        <summary>Яка комісія сервісу?</summary>
+        <p>Сервіс утримує 10% від суми замовлення з виконавця. Замовник платить рівно ту суму, на якій ви домовилися.</p>
+      </details>
+      <details class="qa">
+        <summary>Що, якщо виконавець не виконав роботу?</summary>
+        <p>Кошти повертаються на картку замовника. Виконавець отримує негативний відгук і ризикує бути обмеженим у сервісі.</p>
+      </details>
+      <details class="qa">
+        <summary>Хто перевіряє виконавців?</summary>
+        <p>Перевірка проходить через Дію — підтверджується ім'я і прізвище за паспортними даними. Додатково — рейтинги, відгуки попередніх замовників і верифікований номер телефону.</p>
+      </details>
+      <details class="qa">
+        <summary>Чи можу я бути одночасно замовником і виконавцем?</summary>
+        <p>Так. Один акаунт працює в обох ролях. Перемикайте режим у профілі.</p>
+      </details>
+      <details class="qa">
+        <summary>Які завдання заборонені?</summary>
+        <p>Дорослий контент, веб-моделінг, зйомка людей без їхньої згоди, військові об'єкти і техніка, будь-яка незаконна діяльність. Адміністрація має право видалити запит без пояснень.</p>
+      </details>
+      <details class="qa">
+        <summary>В яких містах сервіс працює?</summary>
+        <p>По всій Україні. Кількість активних виконавців різна — у Львові, Києві, Дніпрі, Одесі більше; у малих містах поки менше. Запит можна створити в будь-якому місті.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="container">
+    <div class="section-head">
+      <h2>Контакти</h2>
+      <p>Сервіс надається фізичною особою-підприємцем. Реквізити для перевірки нижче.</p>
+    </div>
+    <dl class="fop-block">
+      <dt>ФОП</dt>
+      <dd>Мариняк Андрій Володимирович</dd>
+      <dt>РНОКПП</dt>
+      <dd>3261605297</dd>
+      <dt>Email</dt>
+      <dd><a href="mailto:hello@see-you.app">hello@see-you.app</a></dd>
+      <dt>Телефон</dt>
+      <dd><a href="tel:+380965608893">+38 (096) 560-88-93</a></dd>
+      <dt>Місто реєстрації</dt>
+      <dd>Львів, Україна</dd>
+    </dl>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand" href="/" style="color:#fff;">
+          <span class="brand-mark">S</span>
+          <span>SEE YOU</span>
+        </a>
+        <p style="color:#8b95a7; margin-top:14px;">
+          Сервіс присутності. Знаходимо людей, які зроблять це поруч з обʼєктом — швидко і безпечно.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Сервіс</h4>
+        <ul>
+          <li><a href="#how">Як працює</a></li>
+          <li><a href="#categories">Категорії</a></li>
+          <li><a href="#safety">Безпека</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Правова інформація</h4>
+        <ul>
+          <li><a href="/about.html">Про нас</a></li>
+          <li><a href="/contacts.html">Контакти</a></li>
+          <li><a href="/terms.html">Умови користування</a></li>
+          <li><a href="/privacy.html">Політика конфіденційності</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ФОП Мариняк А.В. Усі права захищено.</span>
+      <span>Зроблено в Україні 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
