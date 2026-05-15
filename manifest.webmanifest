@@ -1,0 +1,25 @@
+{
+  "name": "See You — очі там, де потрібно тобі",
+  "short_name": "See You",
+  "description": "Знайдіть людину, яка зробить це поруч з обʼєктом: огляне авто, проконтролює ремонт, передасть документи або зніме подію в іншому місті.",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "lang": "uk",
+  "categories": [
+    "business",
+    "lifestyle",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
