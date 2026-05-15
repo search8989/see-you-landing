@@ -10,6 +10,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://see-you.app/" />
   <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="See You" />
+  <link rel="apple-touch-icon" href="/icon.svg" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232d6cdf'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' font-weight='800' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -421,55 +427,72 @@
 
 
 <script>
-  (function() {
-    var btn = document.getElementById('calcBtn');
-    if (!btn) return;
-    function calc() {
-      var ticket = parseFloat(document.getElementById('calcTicket').value) || 0;
-      var hours = parseFloat(document.getElementById('calcHours').value) || 0;
-      var service = parseFloat(document.getElementById('calcService').value) || 0;
-      var tripCost = ticket * 2;
-      var saveMoney = tripCost - service;
-      var saveHours = hours - 2;
-      document.getElementById('resTrip').textContent = '~' + tripCost + ' грн + ' + hours + ' годин';
-      document.getElementById('resService').textContent = '~' + service + ' грн + 2 години';
-      var moneyText = saveMoney > 0 ? saveMoney + ' грн' : 'без економії грошей';
-      var hoursText = saveHours > 0 ? saveHours + ' годин' : 'без економії часу';
-      document.getElementById('resSave').textContent = moneyText + ' і ' + hoursText;
-    }
-    btn.addEventListener('click', calc);
-    calc();
-  })();
-
-  (function() {
-    var deferredPrompt;
-    var banner = document.getElementById('pwaBanner');
-    var installBtn = document.getElementById('pwaInstall');
-    var closeBtn = document.getElementById('pwaClose');
+  // PWA install logic
+  (function(){
+    const banner = document.getElementById('pwaBanner');
+    const installBtn = document.getElementById('pwaInstall');
+    const closeBtn = document.getElementById('pwaClose');
     if (!banner) return;
-    if (localStorage.getItem('pwaBannerDismissed') === '1') return;
-    window.addEventListener('beforeinstallprompt', function(e) {
+
+    const DISMISS_KEY = 'pwa-dismissed-v1';
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    const dismissed = localStorage.getItem(DISMISS_KEY) === '1';
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    function showBanner(){
+      if (isStandalone || dismissed) return;
+      banner.removeAttribute('hidden');
+    }
+    function hideBanner(){ banner.setAttribute('hidden',''); }
+
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      banner.hidden = false;
+      showBanner();
     });
-    installBtn.addEventListener('click', function() {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.finally(function() {
-          banner.hidden = true;
+
+    if (isIOS && !isStandalone && !dismissed) {
+      if (installBtn) installBtn.textContent = 'Як встановити';
+      showBanner();
+    }
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const choice = await deferredPrompt.userChoice;
           deferredPrompt = null;
-        });
-      } else {
-        banner.hidden = true;
-      }
-    });
-    closeBtn.addEventListener('click', function() {
-      banner.hidden = true;
-      localStorage.setItem('pwaBannerDismissed', '1');
+          if (choice && choice.outcome === 'accepted') hideBanner();
+        } else if (isIOS) {
+          alert('Щоб встановити See You на iPhone:\n1. Натисніть кнопку «Поділитися» внизу екрана\n2. Оберіть «На екран Домівка»\n3. Підтвердьте «Додати»');
+        } else {
+          alert('У вашому браузері встановлення поки недоступне. Спробуйте Chrome або Edge на Android чи Safari на iPhone.');
+        }
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        localStorage.setItem(DISMISS_KEY, '1');
+        hideBanner();
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      hideBanner();
     });
   })();
-</script>
+
+  // Service Worker registration
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(function(err){
+        console.warn('SW registration failed:', err);
+      });
+    });
+  }
+  </script>
 
 </body>
 </html>
