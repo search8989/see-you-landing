@@ -136,7 +136,7 @@
       <div class="calc-form">
         <label><span>Я перебуваю в:</span><input type="text" id="calcFrom" value="Київ" /></label>
         <label><span>Об'єкт у місті:</span><input type="text" id="calcTo" value="Одеса" /></label>
-        <label><span>Яку вартість ви потратите на дорогу? (грн):</span><input type="number" id="calcTicket" value="1200" min="0" /></label>
+        <label><span>Яку вартість ви потратите на дорогу туди і назад? (грн):</span><input type="number" id="calcTicket" value="1200" min="0" /></label>
         <label><span>Час на поїздку туди-назад (годин):</span><input type="number" id="calcHours" value="14" min="0" /></label>
         <label><span>Орієнтовна вартість послуги See You (грн):</span><input type="number" id="calcService" value="600" min="0" /></label>
         <button type="button" class="btn btn-primary" id="calcBtn">Порахувати</button>
@@ -461,7 +461,7 @@
       var ticket = parseFloat(document.getElementById('calcTicket').value) || 0;
       var hours = parseFloat(document.getElementById('calcHours').value) || 0;
       var service = parseFloat(document.getElementById('calcService').value) || 0;
-      var tripCost = ticket * 2;
+      var tripCost = ticket;
       var serviceHours = 2;
       var saveCost = Math.max(0, tripCost - service);
       var saveHours = Math.max(0, hours - serviceHours);
