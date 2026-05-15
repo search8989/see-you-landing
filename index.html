@@ -137,7 +137,7 @@
       <div class="calc-form">
         <label><span>Я перебуваю в:</span><input type="text" id="calcFrom" value="Київ" /></label>
         <label><span>Об'єкт у місті:</span><input type="text" id="calcTo" value="Одеса" /></label>
-        <label><span>Вартість квитка в один бік (грн):</span><input type="number" id="calcTicket" value="1200" min="0" /></label>
+        <label><span>Яку вартість ви потратите на дорогу? (грн):</span><input type="number" id="calcTicket" value="1200" min="0" /></label>
         <label><span>Час на поїздку туди-назад (годин):</span><input type="number" id="calcHours" value="14" min="0" /></label>
         <label><span>Орієнтовна вартість послуги See You (грн):</span><input type="number" id="calcService" value="600" min="0" /></label>
         <button type="button" class="btn btn-primary" id="calcBtn">Порахувати</button>
@@ -448,7 +448,33 @@
       });
     });
   }
-  </script>
+  
+  // Calculator auto-recalc logic
+  (function(){
+    var ids = ['calcFrom','calcTo','calcTicket','calcHours','calcService'];
+    var inputs = ids.map(function(i){return document.getElementById(i);}).filter(Boolean);
+    var resTrip = document.getElementById('resTrip');
+    var resService = document.getElementById('resService');
+    var resSave = document.getElementById('resSave');
+    var btn = document.getElementById('calcBtn');
+    if(!resTrip||!resService||!resSave) return;
+    function recalc(){
+      var ticket = parseFloat(document.getElementById('calcTicket').value) || 0;
+      var hours = parseFloat(document.getElementById('calcHours').value) || 0;
+      var service = parseFloat(document.getElementById('calcService').value) || 0;
+      var tripCost = ticket * 2;
+      var serviceHours = 2;
+      var saveCost = Math.max(0, tripCost - service);
+      var saveHours = Math.max(0, hours - serviceHours);
+      resTrip.textContent = '~' + tripCost + ' грн + ' + hours + ' годин';
+      resService.textContent = '~' + service + ' грн + ' + serviceHours + ' години';
+      resSave.textContent = saveCost + ' грн і ' + saveHours + ' годин';
+    }
+    inputs.forEach(function(el){ el.addEventListener('input', recalc); });
+    if(btn){ btn.addEventListener('click', recalc); btn.style.display='none'; }
+    recalc();
+  })();
+</script>
 
 </body>
 </html>
