@@ -1048,3 +1048,34 @@ details.tpl li {
     opacity: 0.04;
   }
 }
+
+
+/* hero-centered */
+.hero .container {
+  text-align: center;
+}
+
+.hero-eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero h1 {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 820px;
+}
+
+.hero-sub {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 680px;
+}
+
+.hero-ctas {
+  justify-content: center;
+}
+
+.hero-trust {
+  justify-content: center;
+}
