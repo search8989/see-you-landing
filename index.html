@@ -24,6 +24,8 @@
     <div class="nav-links" id="navLinks">
       <a href="#how">Як працює</a>
       <a href="#categories">Категорії</a>
+      <a href="#cases">Кейси</a>
+      <a href="#calculator">Калькулятор</a>
       <a href="#safety">Безпека</a>
       <a href="#faq">FAQ</a>
       <a href="/contacts.html">Контакти</a>
@@ -119,6 +121,69 @@
   </div>
 </section>
 
+<section id="cases">
+  <div class="container">
+    <div class="section-head">
+      <h2>Реальні історії</h2>
+      <p>Як See You допомагає замовникам економити час, гроші та нерви.</p>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <div class="case-tag">🚗 Огляд авто</div>
+        <h3>Зекономив 1500$ на покупці</h3>
+        <p class="case-task"><strong>Завдання:</strong> Олег з Польщі знайшов BMW в Одесі. Замовив огляд у місцевого виконавця.</p>
+        <p class="case-result"><strong>Результат:</strong> Виконавець знайшов сліди ДТП і прихований корозійний дефект. Олег відмовився від угоди.</p>
+        <blockquote>«Заплатив 600 грн за огляд — зекономив 1500 доларів і нерви. Дякую!»</blockquote>
+      </article>
+      <article class="case">
+        <div class="case-tag">🏠 Перевірка нерухомості</div>
+        <h3>Орендувала квартиру не виходячи з Берліна</h3>
+        <p class="case-task"><strong>Завдання:</strong> Марія переїхала за кордон, але повертається до Львова — потрібно орендувати квартиру.</p>
+        <p class="case-result"><strong>Результат:</strong> Виконавець відзняв 3 квартири на відео, перевірив сантехніку та район. Марія обрала найкращу.</p>
+        <blockquote>«Чудовий сервіс. Вибрала квартиру за відео — приїхала, все як і обіцяли.»</blockquote>
+      </article>
+      <article class="case">
+        <div class="case-tag">🔨 Контроль ремонту</div>
+        <h3>Зловив несумлінних будівельників</h3>
+        <p class="case-task"><strong>Завдання:</strong> Андрій робить ремонт у квартирі в Києві, сам живе в Дніпрі. Замовив щотижневий фото-звіт.</p>
+        <p class="case-result"><strong>Результат:</strong> Виконавець виявив, що бригада використовує дешевший матеріал замість обумовленого. Андрій змінив підрядника.</p>
+        <blockquote>«Без See You мене б нагріли тисяч на 30. Регулярні звіти — must have для дистанційного ремонту.»</blockquote>
+      </article>
+      <article class="case">
+        <div class="case-tag">📦 Доручення</div>
+        <h3>Документи передали за 2 години</h3>
+        <p class="case-task"><strong>Завдання:</strong> Терміново передати документи з Харкова до нотаріуса в Полтаві.</p>
+        <p class="case-result"><strong>Результат:</strong> Виконавець забрав пакет, доїхав потягом, передав під підпис. Все за 2 години.</p>
+        <blockquote>«Швидше за будь-яку кур'єрську службу. І дешевше.»</blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="calculator" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Калькулятор вигоди</h2>
+      <p>Підрахуйте, скільки часу і грошей ви заощадите, якщо замовите перевірку замість поїздки.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-form">
+        <label><span>Я перебуваю в:</span><input type="text" id="calcFrom" value="Київ" /></label>
+        <label><span>Об'єкт у місті:</span><input type="text" id="calcTo" value="Одеса" /></label>
+        <label><span>Вартість квитка в один бік (грн):</span><input type="number" id="calcTicket" value="1200" min="0" /></label>
+        <label><span>Час на поїздку туди-назад (годин):</span><input type="number" id="calcHours" value="14" min="0" /></label>
+        <label><span>Орієнтовна вартість послуги See You (грн):</span><input type="number" id="calcService" value="600" min="0" /></label>
+        <button type="button" class="btn btn-primary" id="calcBtn">Порахувати</button>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="calc-row"><span>Самостійна поїздка:</span><strong id="resTrip">~2400 грн + 14 годин</strong></div>
+        <div class="calc-row"><span>Через See You:</span><strong id="resService">~600 грн + 2 години</strong></div>
+        <div class="calc-row calc-save"><span>Ваша економія:</span><strong id="resSave">1800 грн і 12 годин</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="safety">
   <div class="container">
     <div class="section-head">
@@ -155,6 +220,14 @@
         </div>
       </div>
       <div class="safety-item">
+        <div class="safety-item">
+        <div class="safety-icon">⚖️</div>
+        <div>
+          <h3>Арбітраж при спорах</h3>
+          <p>Якщо сторони не дійшли згоди — модератор переглядає чат і матеріали, ухвалює рішення. <a href="/arbitration.html">Детально</a>.</p>
+        </div>
+      </div>
+      <div class="safety-item">
         <div class="safety-icon">🚫</div>
         <div>
           <h3>Заборонений зміст</h3>
@@ -168,6 +241,61 @@
           <p>Зв'язатися з нами можна напряму: email, телефон, чат у застосунку.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="templates" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Шаблони ТЗ (чек-листи)</h2>
+      <p>Готові шаблони для популярних завдань — щоб виконавець точно знав, що від нього хочуть.</p>
+    </div>
+    <div class="templates">
+      <details class="tpl">
+        <summary>🚗 Огляд авто перед покупкою</summary>
+        <ul>
+          <li>Фото VIN-коду (під капотом і на лобовому склі)</li>
+          <li>Фото кузова з 4 ракурсів (перед, зад, обидва боки)</li>
+          <li>Відео 1 хв роботи двигуна на холодну</li>
+          <li>Фото салону, кермової колонки, одометра</li>
+          <li>Фото техпаспорта (за згодою власника)</li>
+          <li>Перевірка ЛКП товщиноміром (за домовленістю)</li>
+        </ul>
+      </details>
+      <details class="tpl">
+        <summary>🏠 Огляд квартири перед орендою</summary>
+        <ul>
+          <li>Відео-обхід усіх кімнат + санвузла + кухні</li>
+          <li>Фото вікон, дверей, балкону</li>
+          <li>Перевірка води (тиск, температура, протоки)</li>
+          <li>Перевірка електрики (всі розетки, лампи)</li>
+          <li>Фото під'їзду, ліфта, двору</li>
+          <li>Запитати у власника: інтернет, рахунки, депозит</li>
+        </ul>
+      </details>
+      <details class="tpl">
+        <summary>🔨 Контроль ремонту</summary>
+        <ul>
+          <li>Фото поточного етапу робіт (кожна кімната)</li>
+          <li>Фото використаних матеріалів з упаковки</li>
+          <li>Перевірка відповідності проєкту</li>
+          <li>Запитати у бригадира: терміни, наступні етапи</li>
+          <li>Виміряти ключові розміри (за списком замовника)</li>
+        </ul>
+      </details>
+      <details class="tpl">
+        <summary>📦 Кур'єрське доручення</summary>
+        <ul>
+          <li>Адреса отримання + контакт відправника</li>
+          <li>Адреса доставки + контакт отримувача</li>
+          <li>Фото пакету при отриманні (цілий, опломбований)</li>
+          <li>Фото підпису про передачу</li>
+          <li>Час очікування (якщо потрібно чекати)</li>
+        </ul>
+      </details>
     </div>
   </div>
 </section>
@@ -195,6 +323,10 @@
         <p>Кошти повертаються на картку замовника. Виконавець отримує негативний відгук і ризикує бути обмеженим у сервісі.</p>
       </details>
       <details class="qa">
+        <summary>А якщо думки сторін розходяться щодо якості виконання?</summary>
+        <p>Відкривається арбітражний кейс. Модератор сервісу отримує тимчасовий доступ до чату й матеріалів замовлення, порівнює ТЗ із результатом і ухвалює рішення про розподіл коштів із сейфу. <a href="/arbitration.html">Детальніше про арбітраж</a>.</p>
+      </details>
+      <details class="qa">
         <summary>Хто перевіряє виконавців?</summary>
         <p>Перевірка проходить через Дію — підтверджується ім'я і прізвище за паспортними даними. Додатково — рейтинги, відгуки попередніх замовників і верифікований номер телефону.</p>
       </details>
@@ -205,6 +337,10 @@
       <details class="qa">
         <summary>Які завдання заборонені?</summary>
         <p>Дорослий контент, веб-моделінг, зйомка людей без їхньої згоди, військові об'єкти і техніка, будь-яка незаконна діяльність. Адміністрація має право видалити запит без пояснень.</p>
+      </details>
+      <details class="qa">
+        <summary>Як встановити See You на головний екран смартфона?</summary>
+        <p><strong>iPhone (Safari):</strong> натисніть «Поділитися» (квадрат зі стрілкою) → «На головний екран».<br><strong>Android (Chrome):</strong> три крапки у правому верхньому куті → «Встановити застосунок» або «Додати на головний екран».</p>
       </details>
       <details class="qa">
         <summary>В яких містах сервіс працює?</summary>
@@ -235,6 +371,12 @@
   </div>
 </section>
 
+<div class="pwa-banner" id="pwaBanner" hidden>
+  <span>📱 Встановіть See You на головний екран — швидкий доступ і сповіщення.</span>
+  <button type="button" id="pwaInstall" class="btn btn-primary btn-sm">Встановити</button>
+  <button type="button" id="pwaClose" class="pwa-close" aria-label="Закрити">✕</button>
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -252,8 +394,18 @@
         <ul>
           <li><a href="#how">Як працює</a></li>
           <li><a href="#categories">Категорії</a></li>
+          <li><a href="#cases">Кейси</a></li>
+          <li><a href="#calculator">Калькулятор</a></li>
           <li><a href="#safety">Безпека</a></li>
           <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Послуги у містах</h4>
+        <ul>
+          <li><a href="/kyiv-auto-inspection.html">Огляд авто в Києві</a></li>
+          <li><a href="/lviv-real-estate.html">Перевірка нерухомості у Львові</a></li>
+          <li><a href="/odesa-event-shooting.html">Зйомка подій в Одесі</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -263,6 +415,7 @@
           <li><a href="/contacts.html">Контакти</a></li>
           <li><a href="/terms.html">Умови користування</a></li>
           <li><a href="/privacy.html">Політика конфіденційності</a></li>
+          <li><a href="/arbitration.html">Регламент арбітражу</a></li>
         </ul>
       </div>
     </div>
@@ -272,6 +425,59 @@
     </div>
   </div>
 </footer>
+
+
+
+<script>
+  (function() {
+    var btn = document.getElementById('calcBtn');
+    if (!btn) return;
+    function calc() {
+      var ticket = parseFloat(document.getElementById('calcTicket').value) || 0;
+      var hours = parseFloat(document.getElementById('calcHours').value) || 0;
+      var service = parseFloat(document.getElementById('calcService').value) || 0;
+      var tripCost = ticket * 2;
+      var saveMoney = tripCost - service;
+      var saveHours = hours - 2;
+      document.getElementById('resTrip').textContent = '~' + tripCost + ' грн + ' + hours + ' годин';
+      document.getElementById('resService').textContent = '~' + service + ' грн + 2 години';
+      var moneyText = saveMoney > 0 ? saveMoney + ' грн' : 'без економії грошей';
+      var hoursText = saveHours > 0 ? saveHours + ' годин' : 'без економії часу';
+      document.getElementById('resSave').textContent = moneyText + ' і ' + hoursText;
+    }
+    btn.addEventListener('click', calc);
+    calc();
+  })();
+
+  (function() {
+    var deferredPrompt;
+    var banner = document.getElementById('pwaBanner');
+    var installBtn = document.getElementById('pwaInstall');
+    var closeBtn = document.getElementById('pwaClose');
+    if (!banner) return;
+    if (localStorage.getItem('pwaBannerDismissed') === '1') return;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      banner.hidden = false;
+    });
+    installBtn.addEventListener('click', function() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function() {
+          banner.hidden = true;
+          deferredPrompt = null;
+        });
+      } else {
+        banner.hidden = true;
+      }
+    });
+    closeBtn.addEventListener('click', function() {
+      banner.hidden = true;
+      localStorage.setItem('pwaBannerDismissed', '1');
+    });
+  })();
+</script>
 
 </body>
 </html>
