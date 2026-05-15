@@ -955,6 +955,8 @@ details.tpl li {
 
 /* ===== PWA Banner ===== */
 
+.pwa-banner[hidden] { display: none !important; }
+
 .pwa-banner {
   position: fixed;
   bottom: 20px;
