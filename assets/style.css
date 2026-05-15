@@ -1080,3 +1080,13 @@ details.tpl li {
   justify-content: center;
     margin-top: 24px;
 }
+
+.hero::after {
+    left: 50%;
+    right: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 400px;
+    opacity: 0.04;
+}
+
