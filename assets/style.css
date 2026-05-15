@@ -1076,6 +1076,16 @@ details.tpl li {
   justify-content: center;
 }
 
+.safety-item,
+.safety-item h3,
+.safety-item p,
+.safety-item > div {
+  text-align: left;
+  hyphens: none;
+  word-wrap: normal;
+  overflow-wrap: break-word;
+}
+
 .hero-trust {
   justify-content: center;
   margin-top: 24px;
