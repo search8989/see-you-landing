@@ -464,13 +464,8 @@ section.alt {
 }
 
 .safety-item {
-  display: flex;
-  gap: 14px;
-  padding: 20px;
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  min-width: 0;
+  display: block;
+  text-align: left;
 }
 
 .safety-item > div {
@@ -485,8 +480,13 @@ section.alt {
 }
 
 .safety-icon {
-  font-size: 1.6rem;
-  flex-shrink: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  font-size: 28.8px;
+  line-height: 1;
+  margin: 0 0 12px 0;
+  padding: 0;
 }
 
 .safety-item h3 {
