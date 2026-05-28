@@ -30,45 +30,81 @@
   }
   .info-box ol { margin: 8px 0 0 0; padding-left: 20px; }
   .info-box li { margin-bottom: 6px; }
-  form {
+
+  .contact-card {
     background: #f7f7f9;
     border-radius: 12px;
     padding: 24px;
-    margin-top: 24px;
+    margin: 24px 0;
+    text-align: center;
   }
-  label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    margin-top: 16px;
-    color: #333;
-    font-size: 14px;
-  }
-  label:first-child { margin-top: 0; }
-  input, select, textarea {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1px solid #d4d4d8;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: inherit;
-  }
-  textarea { resize: vertical; min-height: 80px; }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: #2563eb; }
-  .hint { font-size: 13px; color: #888; margin-top: 4px; font-weight: 400; }
-  button {
-    margin-top: 24px;
-    width: 100%;
-    background: #16a34a;
-    color: #fff;
-    border: none;
-    padding: 14px;
+  .contact-card h2 { margin-top: 0; }
+  .email-big {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid #2563eb;
     border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 14px 22px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 12px 0;
+    user-select: all;
     cursor: pointer;
   }
-  button:hover { background: #15803d; }
+  .copy-email-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-family: inherit;
+  }
+  .copy-email-btn:hover { background: #1d4ed8; }
+  .copy-email-btn.copied { background: #16a34a; }
+  .phone-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #555;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .phone-link strong { color: #1a1a1a; }
+  .phone-link:hover { color: #2563eb; }
+
+  .template-box {
+    background: #fff;
+    border: 1px dashed #d4d4d8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    color: #444;
+    white-space: pre-wrap;
+    position: relative;
+    text-align: left;
+  }
+  .copy-tpl-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-tpl-btn:hover { background: #1d4ed8; }
+  .copy-tpl-btn.copied { background: #16a34a; }
+
   .back { display: inline-block; margin-bottom: 16px; color: #2563eb; text-decoration: none; }
   .back:hover { text-decoration: underline; }
   .badge {
@@ -91,60 +127,83 @@
 
 <h1>Стати виконавцем SEE YOU</h1>
 
-<p class="lead">Залиш заявку — ми з тобою зв'яжемось і допоможемо пройти онбординг, як тільки інтеграція з RozetkaPay буде завершена.</p>
+<p class="lead">Залиш заявку на email — ми з тобою зв'яжемось і допоможемо пройти онбординг, як тільки інтеграція з RozetkaPay буде завершена.</p>
 
 <div class="info-box">
 <strong>Як це буде працювати:</strong>
 <ol>
   <li>Ти реєструєшся як ФОП у RozetkaPay (платіжний оператор) — повний KYC через них (паспорт, виписка ЄДР, IBAN).</li>
   <li>Прив'язуєш свій RP-акаунт до профілю SEE YOU.</li>
-  <li>Стаєш активним виконавцем у нашому додатку — отримуєш замовлення, плата приходить на твій IBAN через split-payment.</li>
+  <li>Стаєш активним виконавцем — отримуєш замовлення, плата приходить на твій IBAN через split-payment.</li>
 </ol>
 </div>
 
-<h2>Заявка</h2>
+<div class="contact-card">
+<h2>Напиши нам на пошту</h2>
+<p style="color:#555;margin:0 0 4px;">Скопіюй адресу і відправ листа зі свого Gmail / Outlook / будь-якого поштового клієнта:</p>
 
-<form action="mailto:hello@see-you.app" method="POST" enctype="text/plain">
+<div>
+<span class="email-big" id="email-text">hello@see-you.app</span>
+<button class="copy-email-btn" onclick="copyEmail()">📋 Копіювати</button>
+</div>
 
-<label>Ім'я та прізвище
-<input type="text" name="Імʼя" placeholder="Іван Іванович" required>
-</label>
+<a href="tel:+380965608893" class="phone-link">або зателефонувати: <strong>+38 (096) 560-88-93</strong></a>
+</div>
 
-<label>Email
-<input type="email" name="Email" placeholder="ivan@example.com" required>
-</label>
+<h2>Готовий шаблон листа</h2>
+<p style="color:#555;">Скопіюй цей текст у тіло листа, заповни кілька полів і відправ нам:</p>
 
-<label>Телефон
-<input type="tel" name="Телефон" placeholder="+38 0XX XXX XX XX" required>
-</label>
+<div class="template-box" id="template">
+<button class="copy-tpl-btn" onclick="copyTemplate()">📋 Копіювати шаблон</button>
+Тема: Заявка виконавця SEE YOU
 
-<label>Місто
-<input type="text" name="Місто" placeholder="Львів, Київ, Одеса..." required>
-</label>
+Здоров!
 
-<label>Чи зареєстрований як ФОП?
-<select name="ФОП-статус" required>
-<option value="">— оберіть —</option>
-<option value="Так, активний ФОП">Так, я вже ФОП</option>
-<option value="Планую зареєструватись">Поки ні, планую зареєструватись</option>
-<option value="Не маю наміру">Не маю наміру реєструватись як ФОП</option>
-</select>
-</label>
+Ім'я:
+Телефон:
+Місто:
+Статус ФОП (так / ні / планую):
 
-<label>Які перевірки готовий робити?
-<textarea name="Послуги" placeholder="Огляд авто, перевірка квартири, фото- і відеофіксація, передача документів тощо. Опиши свій досвід."></textarea>
-</label>
+Дякую!</div>
 
-<label>Коментар (опціонально)
-<textarea name="Коментар" placeholder="Будь-яка додаткова інформація."></textarea>
-</label>
-
-<button type="submit">Залишити заявку</button>
-</form>
-
-<p style="margin-top: 32px; color: #666; font-size: 14px;">
-Питання? Пишіть напряму на <a href="mailto:hello@see-you.app">hello@see-you.app</a>
+<p style="margin-top: 40px; color: #666; font-size: 14px;">
+Будь-які питання — пишіть на <strong>hello@see-you.app</strong>
 </p>
+
+<script>
+function copyEmail() {
+  navigator.clipboard.writeText('hello@see-you.app').then(() => {
+    const btn = document.querySelector('.copy-email-btn');
+    btn.textContent = '✓ Скопійовано';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Копіювати';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+function copyTemplate() {
+  const text = `Тема: Заявка виконавця SEE YOU
+
+Здоров!
+
+Ім'я:
+Телефон:
+Місто:
+Статус ФОП (так / ні / планую):
+
+Дякую!`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-tpl-btn');
+    btn.textContent = '✓ Скопійовано';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Копіювати шаблон';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
 
 </body>
 </html>
