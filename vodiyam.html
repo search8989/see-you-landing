@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ти вже у дорозі — заробляй більше | SEE YOU</title>
+<meta name="description" content="Додатковий дохід для водіїв таксі та кур'єрів. SEE YOU — більший чек, менше за кермом. Підходить діючим ФОП Uklon/Bolt/Glovo.">
+<meta property="og:title" content="Ти вже у дорозі — заробляй більше | SEE YOU">
+<meta property="og:description" content="500-2000 ₴ за одне замовлення SEE YOU. Зарекомендовані ФОП-фрилансери і водії — приходьте.">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0 64px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  .hero {
+    background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+    color: #fff;
+    padding: 60px 24px 56px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 38px; line-height: 1.15; margin: 8px 0 16px; font-weight: 700; }
+  .hero .sub { font-size: 18px; opacity: 0.95; max-width: 640px; margin: 0 auto 24px; }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .hero .stats { display: flex; gap: 32px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+  .hero .stat { text-align: center; }
+  .hero .stat .num { font-size: 28px; font-weight: 700; display: block; }
+  .hero .stat .lbl { font-size: 13px; opacity: 0.9; }
+  .container { padding: 0 20px; }
+  h2 { font-size: 26px; margin-top: 48px; margin-bottom: 20px; }
+  h3 { font-size: 18px; }
+  a { color: #2563eb; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0 32px; }
+  .compare-table th, .compare-table td {
+    padding: 14px 16px;
+    border: 1px solid #eaeaea;
+    text-align: left;
+  }
+  .compare-table th { background: #fafafa; font-weight: 600; font-size: 14px; }
+  .compare-table td.see-you { background: #f0fdf4; font-weight: 600; color: #15803d; }
+  .compare-table tbody tr td:first-child { font-weight: 600; color: #444; }
+
+  .steps { counter-reset: step; padding: 0; list-style: none; margin: 24px 0; }
+  .steps li {
+    counter-increment: step;
+    padding: 18px 16px 18px 64px;
+    margin-bottom: 12px;
+    background: #f7f7f9;
+    border-radius: 10px;
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 32px;
+    height: 32px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .steps strong { display: block; margin-bottom: 4px; font-size: 17px; }
+  .steps p { margin: 0; font-size: 15px; color: #444; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .why-card {
+    background: #f7f7f9;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .why-card .ico { font-size: 28px; margin-bottom: 8px; }
+  .why-card h3 { margin: 0 0 8px; font-size: 16px; }
+  .why-card p { margin: 0; font-size: 14px; color: #555; }
+
+  .price-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .price-card {
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .price-card .ico { font-size: 24px; }
+  .price-card h3 { margin: 8px 0 4px; font-size: 15px; }
+  .price-card .price { font-size: 22px; font-weight: 700; color: #16a34a; }
+  .price-card .time { font-size: 13px; color: #888; }
+
+  details {
+    background: #f7f7f9;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+  }
+  details summary { font-weight: 600; cursor: pointer; }
+  details p { margin: 10px 0 0; font-size: 15px; color: #444; }
+
+  .cta-big {
+    display: block;
+    text-align: center;
+    background: #16a34a;
+    color: #fff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 32px 0;
+  }
+  .cta-big:hover { background: #15803d; }
+  .cta-big .small { display: block; font-size: 13px; font-weight: 400; opacity: 0.95; margin-top: 4px; }
+
+  .back { display: inline-block; margin: 16px 20px; color: #fff; text-decoration: none; opacity: 0.9; }
+  .back:hover { opacity: 1; }
+
+  .note { background: #fff7e6; border-left: 3px solid #f59e0b; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #92400e; }
+
+  .testimonial {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #1e3a8a;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="/" class="back">← На головну</a>
+  <span class="badge">Для водіїв Uklon, Bolt, Glovo та кур'єрів</span>
+  <h1>Ти вже у дорозі —<br>заробляй більше</h1>
+  <p class="sub">SEE YOU — це додатковий дохід між замовленнями таксі чи доставкою. Більший чек, менше за кермом, по дорозі.</p>
+  <div class="stats">
+    <div class="stat"><span class="num">500–2000 ₴</span><span class="lbl">за одне замовлення</span></div>
+    <div class="stat"><span class="num">30–90 хв</span><span class="lbl">час виконання</span></div>
+    <div class="stat"><span class="num">20 %</span><span class="lbl">комісія платформи</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+<h2>Чому це для тебе</h2>
+<div class="why-grid">
+  <div class="why-card">
+    <div class="ico">🪪</div>
+    <h3>У тебе вже є ФОП</h3>
+    <p>Не треба нічого нового реєструвати. Скільки коду ти бачив у Glovo/Uklon — стільки і тут.</p>
+  </div>
+  <div class="why-card">
+    <div class="ico">🚗</div>
+    <h3>У тебе вже є транспорт</h3>
+    <p>Авто, скутер чи велосипед. Усе те, що потрібно для нашої роботи — у тебе вже у руках.</p>
+  </div>
+  <div class="why-card">
+    <div class="ico">📍</div>
+    <h3>Ти вже у місті</h3>
+    <p>Замовлення близько, бо ти й так на маршруті. Не треба робити крюк через все місто за 80 ₴.</p>
+  </div>
+  <div class="why-card">
+    <div class="ico">⏱️</div>
+    <h3>Гнучкий час</h3>
+    <p>Беремо замовлення у тих віконцях, коли ти між викликами або на перерві.</p>
+  </div>
+  <div class="why-card">
+    <div class="ico">📷</div>
+    <h3>Потрібен тільки смартфон</h3>
+    <p>Фото, відео, чат — те що в тебе і так у руці кожні 10 хв.</p>
+  </div>
+  <div class="why-card">
+    <div class="ico">💸</div>
+    <h3>Виплата на твій IBAN</h3>
+    <p>Через RozetkaPay — split-payment напряму. Ніхто не тримає твої гроші. Як у Glovo.</p>
+  </div>
+</div>
+
+<h2>SEE YOU vs Uklon/Glovo — реальні цифри</h2>
+
+<table class="compare-table">
+<thead>
+  <tr>
+    <th>Що</th>
+    <th>Uklon/Bolt</th>
+    <th>Glovo/Bolt Food</th>
+    <th class="see-you">SEE YOU</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Середній чек</td>
+    <td>80–150 ₴</td>
+    <td>50–100 ₴</td>
+    <td class="see-you">500–2000 ₴</td>
+  </tr>
+  <tr>
+    <td>Час на одне замовлення</td>
+    <td>15–25 хв</td>
+    <td>30–45 хв</td>
+    <td class="see-you">30–90 хв</td>
+  </tr>
+  <tr>
+    <td>Комісія платформи</td>
+    <td>15–25 %</td>
+    <td>20–30 %</td>
+    <td class="see-you">20 %</td>
+  </tr>
+  <tr>
+    <td>Фіз. навантаження</td>
+    <td>Високе (за кермом)</td>
+    <td>Дуже високе (пішки + кур'єрський рюкзак)</td>
+    <td class="see-you">Низьке (приїхав, зняв, поїхав)</td>
+  </tr>
+  <tr>
+    <td>Ризик ДТП/штрафу</td>
+    <td>Високий</td>
+    <td>Середній</td>
+    <td class="see-you">Низький</td>
+  </tr>
+  <tr>
+    <td>Чайові</td>
+    <td>Зрідка</td>
+    <td>Зрідка</td>
+    <td class="see-you">Часто — за добру фотозвітність</td>
+  </tr>
+</tbody>
+</table>
+
+<div class="note">
+💡 <strong>Рахуй сам:</strong> 2-3 замовлення SEE YOU на день = доплата ~1500–4000 ₴ за день поверх таксі. Це 30-80 тисяч ₴ на місяць додатково — за час, який ти і так провів за кермом.
+</div>
+
+<h2>Що ти будеш робити</h2>
+
+<div class="price-examples">
+  <div class="price-card">
+    <div class="ico">🚗</div>
+    <h3>Огляд авто</h3>
+    <div class="price">600–1200 ₴</div>
+    <div class="time">~45 хв</div>
+  </div>
+  <div class="price-card">
+    <div class="ico">🏠</div>
+    <h3>Огляд квартири</h3>
+    <div class="price">500–1000 ₴</div>
+    <div class="time">~30 хв</div>
+  </div>
+  <div class="price-card">
+    <div class="ico">📰</div>
+    <h3>Зйомка події</h3>
+    <div class="price">400–800 ₴</div>
+    <div class="time">~30 хв</div>
+  </div>
+  <div class="price-card">
+    <div class="ico">🛠️</div>
+    <h3>Контроль робіт</h3>
+    <div class="price">500–1500 ₴</div>
+    <div class="time">~40 хв</div>
+  </div>
+  <div class="price-card">
+    <div class="ico">📦</div>
+    <h3>Передача документів</h3>
+    <div class="price">200–500 ₴</div>
+    <div class="time">~20 хв</div>
+  </div>
+  <div class="price-card">
+    <div class="ico">💡</div>
+    <h3>Інші доручення</h3>
+    <div class="price">від 200 ₴</div>
+    <div class="time">за домовленістю</div>
+  </div>
+</div>
+
+<p style="font-size: 14px; color: #666;">Орієнтовні ціни. Реальна сума — за домовленістю з замовником через захищений чат у застосунку.</p>
+
+<h2>Як це працює для тебе</h2>
+<ol class="steps">
+  <li>
+    <strong>Залишаєш заявку</strong>
+    <p>Заповнюєш коротку форму. Ми зв'язуємось з тобою у месенджері протягом дня.</p>
+  </li>
+  <li>
+    <strong>Реєструєшся у RozetkaPay</strong>
+    <p>Як ФОП-партнер. Це окремий крок — щоб гроші ішли тобі напряму, без посередників. Допоможемо пройти за 10-15 хв (так само, як ти проходив для Uklon).</p>
+  </li>
+  <li>
+    <strong>Активуєш свій профіль у застосунку</strong>
+    <p>Обираєш місто, категорії що готовий брати, графік.</p>
+  </li>
+  <li>
+    <strong>Береш замовлення між викликами</strong>
+    <p>Бачиш заявки у радіусі. Подаєш свою ціну. Замовник обирає тебе → їдеш, знімаєш, відправляєш звіт у чаті. Гроші приходять на твій IBAN протягом 5 банк. днів.</p>
+  </li>
+</ol>
+
+<a href="/performer-application.html" class="cta-big">
+  Залишити заявку
+  <span class="small">— ми зв'яжемось з тобою сьогодні</span>
+</a>
+
+<h2>Часті запитання</h2>
+
+<details>
+<summary>Це конкурент Uklon/Glovo? Чи я можу працювати на обох?</summary>
+<p>Ні, не конкурент — інша ніша. SEE YOU не возить пасажирів і не доставляє їжу. Ти можеш бути і в Uklon, і у нас одночасно. Ми навіть рекомендуємо — між викликами таксі брати наші замовлення.</p>
+</details>
+
+<details>
+<summary>Що мені потрібно мати окрім ФОП?</summary>
+<p>Смартфон з робочою камерою (Android або iPhone), інтернет, транспорт. Все. Не треба купувати ніякого спецобладнання.</p>
+</details>
+
+<details>
+<summary>Як заробляти більше — тут чи у Uklon?</summary>
+<p>Залежить від навантаження. Якщо ти робиш 10-15 поїздок у Uklon на день — там вийде 1000-1500 ₴. У SEE YOU 2-3 замовлення дають ~1500-3000 ₴ за 2-3 години. Найкраще працює поєднання — таксі як основа, SEE YOU як підробіток на пікові години та паузи.</p>
+</details>
+
+<details>
+<summary>Хто платить мені — клієнт чи платформа?</summary>
+<p>Платіж від клієнта йде напряму на твій IBAN через RozetkaPay (split-payment). SEE YOU не тримає твоїх грошей. Це означає що ти отримуєш виплату навіть якщо платформа завтра зникне — гроші вже у банку.</p>
+</details>
+
+<details>
+<summary>Якщо я зроблю погано і клієнт скаржиться?</summary>
+<p>Адміністрація сервісу переглядає чат і фотозвіт. Якщо вина твоя — клієнту повертається повна сума, ти не отримуєш нічого + штраф у вигляді мінусу рейтингу. Якщо клієнт надто прискіпливий — рейтинг лишається твій, гроші лишаються тобі. <a href="/arbitration.html">Детальніше про арбітраж</a>.</p>
+</details>
+
+<details>
+<summary>Можу я привести друга-водія і отримати бонус?</summary>
+<p>Так, у нас є <a href="/referral.html">реферальна програма</a>: 300 ₴ за кожного приведеного активного виконавця. Без ліміту. Приведи 10 друзів-водіїв — отримай 3000 ₴ просто за рекомендацію.</p>
+</details>
+
+<details>
+<summary>Скільки часу займе підключення?</summary>
+<p>Від моменту заявки до першого замовлення — зазвичай 2-3 робочих дні. Найдовший крок — реєстрація у RozetkaPay (1-2 дні з їх боку), решта — за один вечір.</p>
+</details>
+
+<a href="/performer-application.html" class="cta-big">
+  Все ще цікаво? Залишити заявку
+  <span class="small">— почнемо разом</span>
+</a>
+
+<p style="margin-top: 48px; color: #888; font-size: 14px; text-align: center;">
+Питання? Пишіть на <a href="mailto:hello@see-you.app">hello@see-you.app</a> або у телеграм @see_you_bot
+</p>
+
+</div>
+
+</body>
+</html>
