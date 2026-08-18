@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Стати виконавцем — SEE YOU</title>
-<meta name="description" content="Заявка на участь у сервісі SEE YOU як виконавець-фрилансер.">
+<meta name="description" content="Стань виконавцем SEE YOU: 0% комісії, гроші напряму від замовника, реєстрація за 2 хвилини без ФОП.">
 <style>
   * { box-sizing: border-box; }
   body {
@@ -21,15 +21,30 @@
   a { color: #2563eb; }
   .lead { color: #555; font-size: 17px; margin-bottom: 24px; }
   .info-box {
-    background: #f0f9ff;
-    border-left: 4px solid #2563eb;
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
     padding: 16px 20px;
     border-radius: 8px;
     margin: 24px 0;
-    color: #1e3a8a;
+    color: #14532d;
   }
   .info-box ol { margin: 8px 0 0 0; padding-left: 20px; }
   .info-box li { margin-bottom: 6px; }
+
+  .cta-big {
+    display: block;
+    text-align: center;
+    background: #16a34a;
+    color: #fff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 24px 0;
+  }
+  .cta-big:hover { background: #15803d; }
+  .cta-big .small { display: block; font-size: 13px; font-weight: 400; opacity: 0.95; margin-top: 4px; }
 
   .contact-card {
     background: #f7f7f9;
@@ -109,8 +124,8 @@
   .back:hover { text-decoration: underline; }
   .badge {
     display: inline-block;
-    background: #fef3c7;
-    color: #92400e;
+    background: #dcfce7;
+    color: #15803d;
     padding: 4px 10px;
     border-radius: 6px;
     font-size: 13px;
@@ -123,23 +138,32 @@
 
 <a href="/" class="back">← На головну</a>
 
-<span class="badge">Реєстрація в розробці</span>
+<span class="badge">0% комісії для виконавців</span>
 
 <h1>Стати виконавцем SEE YOU</h1>
 
-<p class="lead">Залиш заявку на email — ми з тобою зв'яжемось і допоможемо пройти онбординг, як тільки інтеграція з RozetkaPay буде завершена.</p>
+<p class="lead">Виконуй разові завдання поруч із собою — огляди, фото- і відеофіксація, перевірки, доручення. Замовник платить тобі напряму, сервіс комісії з виконавців не бере.</p>
 
 <div class="info-box">
-<strong>Як це буде працювати:</strong>
+<strong>Як це працює:</strong>
 <ol>
-  <li>Ти реєструєшся як ФОП у RozetkaPay (платіжний оператор) — повний KYC через них (паспорт, виписка ЄДР, IBAN).</li>
-  <li>Прив'язуєш свій RP-акаунт до профілю SEE YOU.</li>
-  <li>Стаєш активним виконавцем — отримуєш замовлення, плата приходить на твій IBAN через split-payment.</li>
+  <li>Реєструєшся у застосунку — 2 хвилини: номер телефону (SMS-код) + email. Без ФОП і документів.</li>
+  <li>Налаштовуєш профіль: місто, радіус, категорії завдань.</li>
+  <li>Відгукуєшся на замовлення у своєму радіусі — за ціною замовника або нижчою.</li>
+  <li>Виконуєш, здаєш звіт у чаті — і отримуєш гроші напряму від замовника: на картку або готівкою.</li>
 </ol>
 </div>
 
+<a href="https://app.see-you.app" class="cta-big">
+  Зареєструватися у застосунку
+  <span class="small">— 2 хвилини, без ФОП і документів</span>
+</a>
+
+<p style="color:#555;">💡 Новачкам: перші 1–3 замовлення у своєму радіусі виконуються за відгук — так ти швидко набереш рейтинг. Детальніше про заробіток — на сторінці <a href="/vodiyam.html">для водіїв і кур'єрів</a>.</p>
+
+<h2 style="margin-top:48px;">Є питання? Напиши нам</h2>
+
 <div class="contact-card">
-<h2>Напиши нам на пошту</h2>
 <p style="color:#555;margin:0 0 4px;">Скопіюй адресу і відправ листа зі свого Gmail / Outlook / будь-якого поштового клієнта:</p>
 
 <div>
@@ -155,14 +179,14 @@
 
 <div class="template-box" id="template">
 <button class="copy-tpl-btn" onclick="copyTemplate()">📋 Копіювати шаблон</button>
-Тема: Заявка виконавця SEE YOU
+Тема: Питання виконавця SEE YOU
 
 Здоров!
 
 Ім'я:
 Телефон:
 Місто:
-Статус ФОП (так / ні / планую):
+Питання:
 
 Дякую!</div>
 
@@ -183,14 +207,14 @@ function copyEmail() {
   });
 }
 function copyTemplate() {
-  const text = `Тема: Заявка виконавця SEE YOU
+  const text = `Тема: Питання виконавця SEE YOU
 
 Здоров!
 
 Ім'я:
 Телефон:
 Місто:
-Статус ФОП (так / ні / планую):
+Питання:
 
 Дякую!`;
   navigator.clipboard.writeText(text).then(() => {
