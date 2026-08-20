@@ -29,6 +29,26 @@
     .fop-block dt { margin-top: 10px; }
     .fop-block dt:first-child { margin-top: 0; }
   }
+  /* Приклади замовлень */
+  .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .example-card { background: #fff; border: 1px solid #e5e9f0; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .example-badge { align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: #92610a; background: #fff3d6; border: 1px solid #f0d193; border-radius: 999px; padding: 3px 10px; }
+  .example-card h3 { margin: 0; font-size: 17px; }
+  .example-meta { color: #5b6472; font-size: 14px; line-height: 1.55; margin: 0; }
+  .example-link { font-size: 14px; font-weight: 600; color: #2563eb; text-decoration: none; margin-top: auto; }
+  .example-link:hover { text-decoration: underline; }
+  /* Скільки це коштує */
+  .price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 8px; }
+  .price-card { background: #f7f9fc; border: 1px solid #e5e9f0; border-radius: 14px; padding: 22px; }
+  .price-card .price-big { font-size: 26px; font-weight: 800; color: #111827; margin: 2px 0 8px; }
+  .price-card h3 { margin: 0 0 2px; font-size: 16px; }
+  .price-card p { margin: 0; color: #5b6472; font-size: 14px; line-height: 1.55; }
+  .price-note { margin-top: 18px; font-size: 14px; color: #5b6472; }
+  /* Історія засновника */
+  .founder-note { margin-top: 36px; background: #f0f6ff; border: 1px solid #d5e4fb; border-left: 4px solid #2563eb; border-radius: 12px; padding: 20px 24px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .founder-note p { margin: 0 0 8px; }
+  .founder-note p:last-child { margin-bottom: 0; }
+  .founder-note a { font-weight: 600; }
 </style>
 <link rel="manifest" href="/manifest.webmanifest" />
 <meta name="theme-color" content="#2563eb" />
@@ -68,8 +88,8 @@ SEE YOU знаходить людину поруч із потрібним мі�
 Побачте реальну картину — без поїздки, зайвих витрат і необхідності вірити на слово.
 </p>
 <div class="hero-ctas">
-<a class="btn btn-primary" href="https://app.see-you.app">Створити запит</a>
-<a class="btn btn-secondary" href="https://app.see-you.app">Стати виконавцем</a>
+<a class="btn btn-primary" href="https://app.see-you.app/?role=customer">Створити запит</a>
+<a class="btn btn-secondary" href="https://app.see-you.app/?role=performer">Стати виконавцем</a>
 </div>
 <div class="hero-trust">
 <span>Постоплата — платите після результату</span>
@@ -102,6 +122,62 @@ SEE YOU знаходить людину поруч із потрібним мі�
 <p>Фото, відео або трансляція від виконавця. Приймаєте результат — платите виконавцю напряму: на картку, готівкою, як домовитесь.</p>
 </div>
 </div>
+</div>
+</section>
+
+<section id="examples" class="alt">
+<div class="container">
+<div class="section-head" style="text-align:center;max-width:520px;margin-left:auto;margin-right:auto">
+<h2>Приклади замовлень</h2>
+<p>Так можуть виглядати типові запити в застосунку. Ціну і деталі завжди визначаєте ви.</p>
+</div>
+<div class="examples-grid">
+<div class="example-card">
+<span class="example-badge">приклад</span>
+<h3>Перевірити Volkswagen Golf перед покупкою</h3>
+<p class="example-meta">Львів, Сихів · ~30 хв · до 500 ₴<br>Фото + відеозвʼязок: VIN, кузов, салон, запуск двигуна.</p>
+<a class="example-link" href="/pereviryty-avto-pered-pokupkoyu.html">Як перевірити авто дистанційно →</a>
+</div>
+<div class="example-card">
+<span class="example-badge">приклад</span>
+<h3>Показати стан квартири після ремонту</h3>
+<p class="example-meta">Івано-Франківськ · 400 ₴ · відеодзвінок 20 хв<br>Обхід кімнат, деталі зблизька — усе, що попросите.</p>
+<a class="example-link" href="/kontrol-remontu-dystantsiyno.html">Про контроль ремонту на відстані →</a>
+</div>
+<div class="example-card">
+<span class="example-badge">приклад</span>
+<h3>Черги і сніг у Буковелі просто зараз</h3>
+<p class="example-meta">~15 хв · 250 ₴ · трансляція<br>Схили, витяги і парковка наживо — до того, як ви виїхали.</p>
+<a class="example-link" href="/bukovel-zaraz.html">Буковель зараз — детальніше →</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="pricing">
+<div class="container">
+<div class="section-head" style="text-align:center;max-width:520px;margin-left:auto;margin-right:auto">
+<h2>Скільки це коштує</h2>
+<p>Сервіс не встановлює цін — вартість завдання визначають сторони.</p>
+</div>
+<div class="price-cards">
+<div class="price-card">
+<h3>Разове завдання</h3>
+<div class="price-big">типово 300–700 ₴</div>
+<p>Орієнтир для більшості перевірок і оглядів. Ви вказуєте максимальну ціну в запиті — виконавці відгукуються за нею або нижче, вище стелі запропонувати не можна.</p>
+</div>
+<div class="price-card">
+<h3>Комісія сервісу — лише з замовника</h3>
+<div class="price-big">~10% і нижче</div>
+<p>Що дорожче замовлення — то нижчий відсоток. Мінімум 20 ₴, списується з внутрішнього балансу. <strong>Перше замовлення — 0 ₴.</strong></p>
+</div>
+<div class="price-card">
+<h3>Для виконавців</h3>
+<div class="price-big">0% назавжди</div>
+<p>Жодних зборів і абонплат: усю домовлену суму виконавець отримує напряму від замовника — на картку або готівкою.</p>
+</div>
+</div>
+<p class="price-note">Оплата виконавцю — напряму після прийняття результату: без передоплати. Повна таблиця комісії — у розділі <a href="/how-it-works.html#комісія">«Як це працює»</a>.</p>
 </div>
 </section>
 
@@ -194,6 +270,11 @@ SEE YOU знаходить людину поруч із потрібним мі�
 <p>Передача предметів і посилок, дорослий контент, зйомка людей без згоди, військові об'єкти та незаконна діяльність — заборонено. Чат автоматично блокує небезпечні теми.</p>
 </div>
 </div>
+</div>
+
+<div class="founder-note">
+<p>SEE YOU почався з одного відеодзвінка: знайомий засновника, який давно живе за кордоном, понад рік не міг побачити, що відбувається з його квартирою у Львові. Пів години відеозвʼязку з місця дали більше, ніж місяці звітів підрядника — так народився сервіс. Сьогодні SEE YOU працює для українців удома і за кордоном.</p>
+<p><a href="/about.html">Історія SEE YOU →</a></p>
 </div>
 </div>
 </section>
@@ -294,6 +375,12 @@ SEE YOU знаходить людину поруч із потрібним мі�
 <li><a href="#categories">Категорії</a></li>
 <li><a href="#safety">Безпека</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="/pereviryty-avto-pered-pokupkoyu.html">Перевірка авто</a></li>
+<li><a href="/pereviryty-kvartyru-dystantsiyno.html">Огляд квартири</a></li>
+<li><a href="/kontrol-remontu-dystantsiyno.html">Контроль ремонту</a></li>
+<li><a href="/pereviryty-tovar-pered-pokupkoyu.html">Перевірка товару</a></li>
+<li><a href="/kamery-online.html">Камери онлайн</a></li>
+<li><a href="/bukovel-zaraz.html">Буковель зараз</a></li>
 </ul>
 </div>
 <div class="footer-col">
