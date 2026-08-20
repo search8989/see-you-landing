@@ -9,11 +9,12 @@
   --bg-accent-soft: #eaf2ff;
   --text: #0f1b2d;
   --text-muted: #5a6678;
-  --border: #e3e8ef;
+  --border: #b9c5d4; /* аудит 20.08: було #e3e8ef 1,23:1 — картки зникали */
   --brand: #2d6cdf;
   --brand-hover: #1e57c2;
   --brand-soft: #dbe7fb;
   --success: #1fb57a;
+--success-ink: #15803d; /* зелений ТЕКСТОМ/галочки: 5,02:1 (було 2,64:1) */
   --warning: #e08e50;
   --danger: #d04848;
   --radius-sm: 8px;
@@ -320,7 +321,7 @@ p {
 
 .hero-trust span::before {
   content: "✓";
-  color: var(--success, #16a34a);
+  color: var(--success-ink, #15803d);
   font-weight: 700;
 }
 
@@ -871,7 +872,7 @@ footer.site-footer a:hover {
 }
 
 .calc-row.calc-save strong {
-  color: var(--success);
+  color: var(--success-ink);
   font-size: 1.05rem;
 }
 
@@ -963,7 +964,7 @@ details.tpl li {
 
 .bullets-list li::before {
   content: "✓ ";
-  color: var(--success);
+  color: var(--success-ink);
   font-weight: 800;
   margin-right: 6px;
 }
