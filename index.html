@@ -50,17 +50,9 @@
   .founder-note p:last-child { margin-bottom: 0; }
   .founder-note a { font-weight: 600; }
 
-    /* Липка панель дій. Сторінка довга: людина гортає, читає, переконується —
-       і саме в цей момент кнопки з першого екрана вже зникли. Панель
-       зʼявляється після хіро, щоб дія була під рукою постійно. */
-    .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;
-      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-      background:rgba(11,14,19,.92);backdrop-filter:blur(8px);
-      border-top:1px solid rgba(255,255,255,.08);
-      transform:translateY(110%);transition:transform .22s ease;}
+    .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(11,14,19,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);transform:translateY(110%);transition:transform .22s ease;}
     .sticky-cta.is-on{transform:translateY(0);}
-    .sticky-cta a{flex:1;text-align:center;padding:14px 10px;border-radius:12px;
-      font-weight:600;font-size:16px;text-decoration:none;line-height:1.2;}
+    .sticky-cta a{flex:1;text-align:center;padding:14px 10px;border-radius:12px;font-weight:600;font-size:16px;text-decoration:none;line-height:1.2;}
     .sticky-cta .cta-order{background:#2563eb;color:#fff;}
     .sticky-cta .cta-earn{background:transparent;color:#e8ecf5;border:1px solid rgba(255,255,255,.28);}
     @media (min-width:900px){.sticky-cta{display:none;}}
@@ -512,21 +504,16 @@ recalc();
 </script>
 
 
-  <div class="sticky-cta" id="stickyCta" aria-label="Швидкі дії">
+  <div class="sticky-cta" id="stickyCta">
     <a class="cta-order" href="https://app.see-you.app/?role=customer">Замовити</a>
     <a class="cta-earn" href="/performer-application.html">Заробити</a>
   </div>
   <script>
-    // Показуємо панель, коли перший екран прокручено: доти там свої кнопки,
-    // а на телефоні дубль перекрив би half екрана.
     (function () {
       var bar = document.getElementById("stickyCta");
       var hero = document.querySelector(".hero");
       if (!bar || !hero) return;
-      function sync() {
-        var passed = hero.getBoundingClientRect().bottom < 0;
-        bar.classList.toggle("is-on", passed);
-      }
+      function sync() { bar.classList.toggle("is-on", hero.getBoundingClientRect().bottom < 0); }
       window.addEventListener("scroll", sync, { passive: true });
       window.addEventListener("resize", sync);
       sync();
