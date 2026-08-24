@@ -161,73 +161,11 @@
 
 <p style="color:#555;">💡 Новачкам: перші 1–3 замовлення у своєму радіусі виконуються за відгук — так ти швидко набереш рейтинг. Детальніше про заробіток — на сторінці <a href="/vodiyam.html">для водіїв і кур'єрів</a>.</p>
 
-<h2 style="margin-top:48px;">Є питання? Напиши нам</h2>
-
-<div class="contact-card">
-<p style="color:#555;margin:0 0 4px;">Скопіюй адресу і відправ листа зі свого Gmail / Outlook / будь-якого поштового клієнта:</p>
-
-<div>
-<span class="email-big" id="email-text">hello@see-you.app</span>
-<button class="copy-email-btn" onclick="copyEmail()">📋 Копіювати</button>
-</div>
-
-<a href="tel:+380969611196" class="phone-link">або зателефонувати: <strong>+38 (096) 961-11-96</strong></a>
-</div>
-
-<h2>Готовий шаблон листа</h2>
-<p style="color:#555;">Скопіюй цей текст у тіло листа, заповни кілька полів і відправ нам:</p>
-
-<div class="template-box" id="template">
-<button class="copy-tpl-btn" onclick="copyTemplate()">📋 Копіювати шаблон</button>
-Тема: Питання виконавця SEE YOU
-
-Здоров!
-
-Ім'я:
-Телефон:
-Місто:
-Питання:
-
-Дякую!</div>
-
-<p style="margin-top: 40px; color: #666; font-size: 14px;">
-Будь-які питання — пишіть на <strong>hello@see-you.app</strong>
-</p>
-
-<script>
-function copyEmail() {
-  navigator.clipboard.writeText('hello@see-you.app').then(() => {
-    const btn = document.querySelector('.copy-email-btn');
-    btn.textContent = '✓ Скопійовано';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = '📋 Копіювати';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
-}
-function copyTemplate() {
-  const text = `Тема: Питання виконавця SEE YOU
-
-Здоров!
-
-Ім'я:
-Телефон:
-Місто:
-Питання:
-
-Дякую!`;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector('.copy-tpl-btn');
-    btn.textContent = '✓ Скопійовано';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = '📋 Копіювати шаблон';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
-}
-</script>
+  <h2>Є питання?</h2>
+  <p>
+    Напиши на <a href="mailto:hello@see-you.app?subject=%D0%9F%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%B2%D1%86%D1%8F%20SEE%20YOU">hello@see-you.app</a>
+    або зателефонуй: <a href="tel:+380969611196">+38 (096) 961-11-96</a>
+  </p>
 
 </body>
 </html>
