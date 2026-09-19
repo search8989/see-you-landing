@@ -683,5 +683,8 @@ section > .container > p,
 .portrait img { border: 1px solid var(--line); }
 
 .about-story.first { border-top: 0 !important; padding-top: clamp(24px, 3vw, 36px); }
-.about-story h1 { font-size: clamp(30px, 4.2vw, 46px); margin-bottom: 24px; }
+.about-story h1 { font-size: clamp(25px, 2.8vw, 34px); margin-bottom: 20px; line-height: 1.12; max-width: 22ch; }
 .lead-strong { font-size: 19px; line-height: 1.6; color: var(--read); max-width: 66ch; margin-bottom: 18px; }
+
+.about-story.first { padding-top: clamp(16px, 2vw, 24px); }
+.about .crumbs { margin-bottom: 14px; }
