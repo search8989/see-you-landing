@@ -599,3 +599,6 @@ main.container > h3, .legal h3 { margin-bottom: 10px; }
 a.cat { color: var(--text); }
 a.cat h3 { color: var(--text); transition: color .2s var(--ease); }
 a.cat:hover h3 { color: var(--glow); }
+
+/* шість категорій рівними рядами */
+@media (min-width: 1000px) { #categories .cats { grid-template-columns: repeat(3, 1fr); } }
