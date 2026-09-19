@@ -538,3 +538,19 @@ main.container > p, main.container > ul, main.container > ol { max-width: 78ch; 
 /* ── повітря під заголовками в текстових сторінках ───────── */
 main.container > h2, .legal h2 { margin-bottom: 16px; }
 main.container > h3, .legal h3 { margin-bottom: 10px; }
+
+/* ── контакти на головній ────────────────────────────────── */
+.contact-row {
+  display: grid; gap: 16px; max-width: 720px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.contact-card {
+  display: flex; flex-direction: column; gap: 6px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 20px 22px; color: var(--text);
+  transition: transform .24s var(--ease), border-color .24s var(--ease), background .24s var(--ease);
+}
+.contact-card:hover { transform: translateY(-3px); border-color: var(--line-strong); background: var(--surface-2); color: var(--text); }
+.contact-label { font-size: 12.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--dim); }
+.contact-value { font-size: 17px; font-weight: 600; }
+.contact-more { margin-top: 22px; font-size: 15px; }
