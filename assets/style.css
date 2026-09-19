@@ -597,9 +597,12 @@ footer.site-footer a:hover {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 36px 32px;
   margin-bottom: 30px;
+}
+@media (min-width: 1000px) {
+  .footer-grid { grid-template-columns: 1.6fr 1fr 1.1fr 1fr 1.2fr; }
 }
 
 .footer-col h4 {
@@ -1029,11 +1032,17 @@ details.tpl li {
   opacity: 1;
 }
 
-/* ===== Footer: 4 columns support ===== */
+/* ===== Footer: 5 columns ===== */
 
 @media (min-width: 721px) {
   .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1.1fr 1fr 1.2fr;
   }
 }
 
