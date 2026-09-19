@@ -649,7 +649,7 @@ section > .container > p,
     radial-gradient(120% 90% at 30% 20%, rgba(110,168,255,.10), transparent 60%),
     linear-gradient(170deg, var(--surface-2), var(--surface));
 }
-.portrait img { width: 100%; max-width: 280px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; display: block; }
+.portrait img { width: 100%; height: auto; max-width: 280px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; display: block; }
 .sign { margin-top: 26px; font-size: 15px; color: var(--muted); }
 .sign b { display: block; color: var(--text); font-size: 16.5px; font-weight: 600; margin-bottom: 2px; }
 
@@ -678,4 +678,6 @@ section > .container > p,
 .nav-cta:hover { background: var(--accent-hi); border-color: var(--accent-hi); color: #fff; }
 
 /* фото засновника — чорно-біле */
-.portrait img { filter: grayscale(1) contrast(1.04); }
+
+
+.portrait img { border: 1px solid var(--line); }
