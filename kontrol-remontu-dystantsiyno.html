@@ -63,14 +63,6 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/style.css" />
-<style>
-  .example-badge { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:#92610a; background:#fff3d6; border:1px solid #f0d193; border-radius:999px; padding:3px 10px; margin-bottom:10px; }
-  .example-box { border:1px solid #e5e9f0; border-radius:14px; padding:22px 24px; background:#fff; max-width:760px; margin-top:18px; }
-  .example-box p { margin:0; color:#3d4653; }
-  .note-box { background:#f0f6ff; border:1px solid #d5e4fb; border-left:4px solid #2563eb; border-radius:12px; padding:18px 22px; margin-top:24px; max-width:760px; }
-  .note-box p { margin:0; }
-</style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232d6cdf'/%3E%3Cg transform='translate(16 16) scale(0.85) translate(-12 -12)' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E" />
 <meta property="og:image" content="https://see-you.app/assets/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -78,24 +70,27 @@
 <meta property="og:locale" content="uk_UA" />
 <meta property="og:site_name" content="SEE YOU" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
 
 <nav class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="/"><span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
-    <button class="nav-burger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="/#how">Як працює</a>
-      <a href="/#categories">Категорії</a>
-      <a href="/#safety">Безпека</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/contacts">Контакти</a>
-      <a class="nav-cta" href="https://app.see-you.app">Відкрити застосунок</a>
-    </div>
-  </div>
+<div class="container nav-inner">
+<a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
+<button class="nav-burger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="/#how">Як працює</a>
+<a href="/#categories">Категорії</a>
+<a href="/#safety">Безпека</a>
+<a href="/#faq">FAQ</a>
+<a href="/contacts">Контакти</a>
+<a class="nav-cta" href="https://app.see-you.app">Відкрити застосунок</a>
+</div>
+</div>
 </nav>
-
 <header class="hero">
   <div class="container">
     <span class="hero-eyebrow">Ремонт • Контроль на відстані</span>
@@ -115,7 +110,7 @@
 
 <section>
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Чому фото від підрядника — не контроль</h2>
     </div>
     <p>Підрядник надсилає фото того, що вигідно показати: рівну стіну — а не кут із тріщиною, нову плитку — а не порожні мішки з-під «купленої» шпаклівки. Це не обовʼязково обман, але це завжди вибіркова картинка.</p>
@@ -129,21 +124,21 @@
 
 <section class="alt">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Як це працює</h2>
     </div>
     <div class="steps">
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">1</div>
         <h3>Створіть запит</h3>
         <p>Адреса обʼєкта, що саме показати, зручний час візиту і максимальна ціна. Попередьте підрядника або довірену особу, що прийде людина для відеообходу.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">2</div>
         <h3>Оберіть виконавця</h3>
         <p>Відгукнуться люди поруч з обʼєктом. Рейтинг, відгуки і кількість спорів видно у профілі. Час і деталі узгодьте в текстовому чаті замовлення.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">3</div>
         <h3>Дивіться обʼєкт наживо</h3>
         <p>Виконавець виходить на відеозвʼязок прямо з квартири: ви керуєте оглядом у реальному часі. Прийняли результат — платите напряму: на картку чи готівкою.</p>
@@ -154,7 +149,7 @@
 
 <section>
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Що попросити показати на обʼєкті</h2>
       <p>Чекліст для запиту — адаптуйте під свій етап ремонту.</p>
     </div>
@@ -178,7 +173,7 @@
 
 <section class="alt">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Поширені запитання</h2>
     </div>
     <div class="faq">
@@ -205,7 +200,7 @@
 
 <section>
   <div class="container" style="text-align:center;">
-    <div class="section-head" style="max-width:540px;margin-left:auto;margin-right:auto;">
+    <div class="section-head reveal">
       <h2>Перевірте свій обʼєкт цього тижня</h2>
       <p>Один запит — і ви бачите ремонт на власні очі, навіть якщо між вами і квартирою півтори тисячі кілометрів.</p>
     </div>
@@ -217,45 +212,63 @@
 </section>
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <a class="brand" href="/" style="color:#fff;">
-          <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <span>SEE YOU</span>
-        </a>
-        <p style="color:#8b95a7; margin-top:14px;">Сервіс присутності: людина поруч із потрібним місцем покаже його вам — фото, відео або трансляція.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Сервіс</h4>
-        <ul>
-          <li><a href="/how-it-works">Як це працює</a></li>
-          <li><a href="/pereviryty-avto-pered-pokupkoyu">Перевірка авто</a></li>
-          <li><a href="/pereviryty-kvartyru-dystantsiyno">Огляд квартири</a></li>
-          <li><a href="/kontrol-remontu-dystantsiyno">Контроль ремонту</a></li>
-          <li><a href="/pereviryty-tovar-pered-pokupkoyu">Перевірка товару</a></li>
-          <li><a href="/kamery-online">Камери онлайн</a></li>
-          <li><a href="/bukovel-zaraz">Буковель зараз</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Правова інформація</h4>
-        <ul>
-          <li><a href="/about">Про нас</a></li>
-          <li><a href="/contacts">Контакти</a></li>
-          <li><a href="/terms">Умови користування</a></li>
-          <li><a href="/privacy">Політика конфіденційності</a></li>
-          <li><a href="/arbitration">Регламент арбітражу</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ФОП Мариняк А.В. Усі права захищено.</span>
-      <span>Зроблено в Україні 🇺🇦</span>
-    </div>
-  </div>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
+<p style="margin-top:14px;max-width:26ch">Очі там, де потрібно тобі.</p>
+</div>
+<div class="footer-col">
+<h4>Сервіс</h4>
+<ul>
+<li><a href="/how-it-works">Як працює</a></li>
+<li><a href="/#categories">Категорії</a></li>
+<li><a href="/#safety">Безпека</a></li>
+<li><a href="/#faq">FAQ</a></li>
+<li><a href="/about">Про нас</a></li>
+<li><a href="/contacts">Контакти</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Послуги</h4>
+<ul>
+<li><a href="/pereviryty-avto-pered-pokupkoyu">Перевірка авто</a></li>
+<li><a href="/pereviryty-kvartyru-dystantsiyno">Огляд квартири</a></li>
+<li><a href="/kontrol-remontu-dystantsiyno">Контроль ремонту</a></li>
+<li><a href="/pereviryty-tovar-pered-pokupkoyu">Перевірка товару</a></li>
+<li><a href="/kamery-online">Камери онлайн</a></li>
+<li><a href="/bukovel-zaraz">Буковель зараз</a></li>
+<li><a href="/kyiv-auto-inspection">Огляд авто в Києві</a></li>
+<li><a href="/lviv-real-estate">Нерухомість у Львові</a></li>
+<li><a href="/odesa-event-shooting">Зйомка події в Одесі</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Виконавцям</h4>
+<ul>
+<li><a href="/performer-application">Стати виконавцем</a></li>
+<li><a href="/vodiyam">Водіям і курʼєрам</a></li>
+<li><a href="/dogovir-vykonavcia">Договір виконавця</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Правова інформація</h4>
+<ul>
+<li><a href="/terms">Умови користування</a></li>
+<li><a href="/privacy">Політика конфіденційності</a></li>
+<li><a href="/arbitration">Регламент арбітражу</a></li>
+<li><a href="/offer">Публічна оферта</a></li>
+<li><a href="/delete-account">Видалення акаунта</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 ФОП Мариняк А.В. Усі права захищено.</span>
+<span>Зроблено в Україні</span>
+</div>
+</div>
 </footer>
-
 <script src="/assets/analytics.js" defer></script>
+<script src="/assets/ui.js" defer></script>
 </body>
 </html>

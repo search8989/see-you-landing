@@ -7,152 +7,6 @@
 <meta name="description" content="Додатковий дохід для водіїв таксі та кур'єрів. SEE YOU — 0% комісії платформи, гроші напряму від замовника, ціну ти погоджуєш сам.">
 <meta property="og:title" content="Ти вже у дорозі — заробляй більше | SEE YOU">
 <meta property="og:description" content="0% комісії — вся сума твоя. Ціну погоджуєш із замовником. Водії та кур'єри — приходьте.">
-<style>
-  * { box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 0 64px;
-    line-height: 1.6;
-    color: #1a1a1a;
-    background: #fff;
-  }
-  .hero {
-    background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
-    color: #fff;
-    padding: 60px 24px 56px;
-    margin-bottom: 32px;
-    text-align: center;
-  }
-  .hero h1 { font-size: 38px; line-height: 1.15; margin: 8px 0 16px; font-weight: 700; }
-  .hero .sub { font-size: 18px; opacity: 0.95; max-width: 640px; margin: 0 auto 24px; }
-  .hero .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 14px;
-    margin-bottom: 4px;
-  }
-  .hero .stats { display: flex; gap: 32px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
-  .hero .stat { text-align: center; }
-  .hero .stat .num { font-size: 28px; font-weight: 700; display: block; }
-  .hero .stat .lbl { font-size: 13px; opacity: 0.9; }
-  .container { padding: 0 20px; }
-  h2 { font-size: 26px; margin-top: 48px; margin-bottom: 20px; }
-  h3 { font-size: 18px; }
-  a { color: #2563eb; }
-
-  .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0 32px; }
-  .compare-table th, .compare-table td {
-    padding: 14px 16px;
-    border: 1px solid #eaeaea;
-    text-align: left;
-  }
-  .compare-table th { background: #fafafa; font-weight: 600; font-size: 14px; }
-  .compare-table td.see-you { background: #f0fdf4; font-weight: 600; color: #15803d; }
-  .compare-table tbody tr td:first-child { font-weight: 600; color: #444; }
-
-  .steps { counter-reset: step; padding: 0; list-style: none; margin: 24px 0; }
-  .steps li {
-    counter-increment: step;
-    padding: 18px 16px 18px 64px;
-    margin-bottom: 12px;
-    background: #f7f7f9;
-    border-radius: 10px;
-    position: relative;
-  }
-  .steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 18px;
-    top: 18px;
-    width: 32px;
-    height: 32px;
-    background: #16a34a;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 16px;
-  }
-  .steps strong { display: block; margin-bottom: 4px; font-size: 17px; }
-  .steps p { margin: 0; font-size: 15px; color: #444; }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    margin: 24px 0;
-  }
-  .why-card {
-    background: #f7f7f9;
-    border-radius: 10px;
-    padding: 20px;
-  }
-  .why-card .ico { font-size: 28px; margin-bottom: 8px; }
-  .why-card h3 { margin: 0 0 8px; font-size: 16px; }
-  .why-card p { margin: 0; font-size: 14px; color: #555; }
-
-  .price-examples {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-    margin: 20px 0;
-  }
-  .price-card {
-    border: 1px solid #eaeaea;
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-  }
-  .price-card .ico { font-size: 24px; }
-  .price-card h3 { margin: 8px 0 4px; font-size: 15px; }
-  .price-card .price { font-size: 22px; font-weight: 700; color: #16a34a; }
-  .price-card .time { font-size: 13px; color: #888; }
-
-  details {
-    background: #f7f7f9;
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 8px;
-  }
-  details summary { font-weight: 600; cursor: pointer; }
-  details p { margin: 10px 0 0; font-size: 15px; color: #444; }
-
-  .cta-big {
-    display: block;
-    text-align: center;
-    background: #16a34a;
-    color: #fff;
-    padding: 20px 24px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-    margin: 32px 0;
-  }
-  .cta-big:hover { background: #15803d; }
-  .cta-big .small { display: block; font-size: 13px; font-weight: 400; opacity: 0.95; margin-top: 4px; }
-
-  .back { display: inline-block; margin: 16px 20px; color: #fff; text-decoration: none; opacity: 0.9; }
-  .back:hover { opacity: 1; }
-
-  .note { background: #fff7e6; border-left: 3px solid #f59e0b; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #92400e; }
-
-  .testimonial {
-    background: #eff6ff;
-    border-left: 4px solid #2563eb;
-    padding: 16px 20px;
-    border-radius: 8px;
-    margin: 20px 0;
-    font-style: italic;
-    color: #1e3a8a;
-  }
-</style>
 <link rel="canonical" href="https://see-you.app/vodiyam" />
 <meta property="og:image" content="https://see-you.app/assets/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -160,8 +14,27 @@
 <meta property="og:locale" content="uk_UA" />
 <meta property="og:site_name" content="SEE YOU" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
+<nav class="nav">
+<div class="container nav-inner">
+<a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
+<button class="nav-burger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="/#how">Як працює</a>
+<a href="/#categories">Категорії</a>
+<a href="/#safety">Безпека</a>
+<a href="/#faq">FAQ</a>
+<a href="/contacts">Контакти</a>
+<a class="nav-cta" href="https://app.see-you.app">Відкрити застосунок</a>
+</div>
+</div>
+</nav>
+
 
 <div class="hero">
   <a href="/" class="back">← На головну</a>
@@ -179,33 +52,33 @@
 
 <h2>Чому це для тебе</h2>
 <div class="why-grid">
-  <div class="why-card">
-    <div class="ico">💸</div>
+  <div class="why-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
     <h3>0% комісії. Вся сума твоя</h3>
     <p>Замовник платить тобі напряму — на картку або готівкою. Сервіс не бере з виконавців ані копійки.</p>
   </div>
-  <div class="why-card">
-    <div class="ico">🪪</div>
+  <div class="why-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.5 1.8-2.2 3-2.2s2.4.7 3 2.2M15 10h4M15 13.5h4"/></svg></div>
     <h3>Реєстрація за 2 хвилини</h3>
     <p>Номер телефону, email і одноразове підтвердження картки на 1 ₴ — щоб ми знали, що за акаунтом реальна людина. Документів і анкет не треба.</p>
   </div>
-  <div class="why-card">
-    <div class="ico">🚗</div>
+  <div class="why-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M4 17v-4l2-5h12l2 5v4"/><circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/></svg></div>
     <h3>У тебе вже є транспорт</h3>
     <p>Авто, скутер чи велосипед. Усе те, що потрібно для нашої роботи — у тебе вже у руках.</p>
   </div>
-  <div class="why-card">
-    <div class="ico">📍</div>
+  <div class="why-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
     <h3>Ти вже у місті</h3>
     <p>Замовлення близько, бо ти й так на маршруті. Не треба робити гак через усе місто заради дрібної суми.</p>
   </div>
-  <div class="why-card">
-    <div class="ico">⏱️</div>
+  <div class="why-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></div>
     <h3>Гнучкий час</h3>
     <p>Береш замовлення у тих віконцях, коли ти між викликами або на перерві.</p>
   </div>
-  <div class="why-card">
-    <div class="ico">📷</div>
+  <div class="why-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3l2-2h8l2 2h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg></div>
     <h3>Потрібен тільки смартфон</h3>
     <p>Фото, відео, чат — те що в тебе і так у руці кожні 10 хв.</p>
   </div>
@@ -257,34 +130,34 @@
 </table>
 
 <div class="note">
-💡 <strong>Скільки вийде:</strong> ціну кожного завдання ти погоджуєш із замовником сам, комісії платформи немає — скільки домовився, стільки й отримав. Кількість замовлень залежить від міста та попиту, тому обіцяти конкретний місячний дохід ми не беремось.
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.3.3.5.7.5 1.1h6c0-.4.2-.8.5-1.1A6 6 0 0012 3z"/></svg> <strong>Скільки вийде:</strong> ціну кожного завдання ти погоджуєш із замовником сам, комісії платформи немає — скільки домовився, стільки й отримав. Кількість замовлень залежить від міста та попиту, тому обіцяти конкретний місячний дохід ми не беремось.
 </div>
 
 <h2>Що ти будеш робити</h2>
 
 <div class="price-examples">
-  <div class="price-card">
-    <div class="ico">🚗</div>
+  <div class="price-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M4 17v-4l2-5h12l2 5v4"/><circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/></svg></div>
     <h3>Огляд авто</h3>
     </div>
-  <div class="price-card">
-    <div class="ico">🏠</div>
+  <div class="price-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
     <h3>Огляд квартири</h3>
     </div>
-  <div class="price-card">
-    <div class="ico">📰</div>
+  <div class="price-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h6M7 13h6M17 9v6"/></svg></div>
     <h3>Зйомка події</h3>
     </div>
-  <div class="price-card">
-    <div class="ico">🛠️</div>
+  <div class="price-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.5 2.5-2.1-2.1z"/></svg></div>
     <h3>Контроль робіт</h3>
     </div>
-  <div class="price-card">
-    <div class="ico">🔴</div>
+  <div class="price-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3z"/></svg></div>
     <h3>Трансляція наживо</h3>
     </div>
-  <div class="price-card">
-    <div class="ico">💡</div>
+  <div class="price-card reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.3.3.5.7.5 1.1h6c0-.4.2-.8.5-1.1A6 6 0 0012 3z"/></svg></div>
     <h3>Інші перевірки</h3>
     </div>
 </div>
@@ -370,5 +243,63 @@
 </div>
 
 <script src="/assets/analytics.js" defer></script>
+<script src="/assets/ui.js" defer></script>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
+<p style="margin-top:14px;max-width:26ch">Очі там, де потрібно тобі.</p>
+</div>
+<div class="footer-col">
+<h4>Сервіс</h4>
+<ul>
+<li><a href="/how-it-works">Як працює</a></li>
+<li><a href="/#categories">Категорії</a></li>
+<li><a href="/#safety">Безпека</a></li>
+<li><a href="/#faq">FAQ</a></li>
+<li><a href="/about">Про нас</a></li>
+<li><a href="/contacts">Контакти</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Послуги</h4>
+<ul>
+<li><a href="/pereviryty-avto-pered-pokupkoyu">Перевірка авто</a></li>
+<li><a href="/pereviryty-kvartyru-dystantsiyno">Огляд квартири</a></li>
+<li><a href="/kontrol-remontu-dystantsiyno">Контроль ремонту</a></li>
+<li><a href="/pereviryty-tovar-pered-pokupkoyu">Перевірка товару</a></li>
+<li><a href="/kamery-online">Камери онлайн</a></li>
+<li><a href="/bukovel-zaraz">Буковель зараз</a></li>
+<li><a href="/kyiv-auto-inspection">Огляд авто в Києві</a></li>
+<li><a href="/lviv-real-estate">Нерухомість у Львові</a></li>
+<li><a href="/odesa-event-shooting">Зйомка події в Одесі</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Виконавцям</h4>
+<ul>
+<li><a href="/performer-application">Стати виконавцем</a></li>
+<li><a href="/vodiyam">Водіям і курʼєрам</a></li>
+<li><a href="/dogovir-vykonavcia">Договір виконавця</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Правова інформація</h4>
+<ul>
+<li><a href="/terms">Умови користування</a></li>
+<li><a href="/privacy">Політика конфіденційності</a></li>
+<li><a href="/arbitration">Регламент арбітражу</a></li>
+<li><a href="/offer">Публічна оферта</a></li>
+<li><a href="/delete-account">Видалення акаунта</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 ФОП Мариняк А.В. Усі права захищено.</span>
+<span>Зроблено в Україні</span>
+</div>
+</div>
+</footer>
 </body>
 </html>

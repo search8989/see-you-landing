@@ -35,7 +35,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/assets/style.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232d6cdf'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' font-weight='800' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
 <meta property="og:image" content="https://see-you.app/assets/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -43,24 +42,27 @@
 <meta property="og:locale" content="uk_UA" />
 <meta property="og:site_name" content="SEE YOU" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
 
 <nav class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="/"><span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
-    <button class="nav-burger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="/#how">Як працює</a>
-      <a href="/#categories">Категорії</a>
-      <a href="/#safety">Безпека</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/contacts">Контакти</a>
-      <a class="nav-cta" href="https://app.see-you.app">Відкрити застосунок</a>
-    </div>
-  </div>
+<div class="container nav-inner">
+<a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
+<button class="nav-burger" aria-label="Меню" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="/#how">Як працює</a>
+<a href="/#categories">Категорії</a>
+<a href="/#safety">Безпека</a>
+<a href="/#faq">FAQ</a>
+<a href="/contacts">Контакти</a>
+<a class="nav-cta" href="https://app.see-you.app">Відкрити застосунок</a>
+</div>
+</div>
 </nav>
-
 <header class="hero">
   <div class="container">
     <span class="hero-eyebrow">Одеса • Зйомка подій</span>
@@ -80,7 +82,7 @@
 
 <section>
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Що отримуєте</h2>
     </div>
     <ul class="bullets-list">
@@ -100,21 +102,21 @@
 
 <section class="alt">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Як це працює</h2>
     </div>
     <div class="steps">
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">1</div>
         <h3>Створіть запит</h3>
         <p>Оберіть категорію «Зйомка подій», опишіть, що саме треба зняти, вкажіть Одесу і свою максимальну ціну.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">2</div>
         <h3>Оберіть виконавця</h3>
         <p>Перегляньте відгуки місцевих виконавців, рейтинги і запропоновані ціни.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">3</div>
         <h3>Отримайте результат</h3>
         <p>Фото, відео або трансляція. Оплата виконавцю напряму — після прийняття результату.</p>
@@ -131,14 +133,63 @@
 <p>Детальніше: <a href="/how-it-works">як працює сервіс</a><a href="/kamery-online">трансляції наживо</a>.</p>
 </section>
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-bottom">
-      <span>© 2026 ФОП Мариняк А.В. Усі права захищено.</span>
-      <span>Зроблено в Україні 🇺🇦</span>
-    </div>
-  </div>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
+<p style="margin-top:14px;max-width:26ch">Очі там, де потрібно тобі.</p>
+</div>
+<div class="footer-col">
+<h4>Сервіс</h4>
+<ul>
+<li><a href="/how-it-works">Як працює</a></li>
+<li><a href="/#categories">Категорії</a></li>
+<li><a href="/#safety">Безпека</a></li>
+<li><a href="/#faq">FAQ</a></li>
+<li><a href="/about">Про нас</a></li>
+<li><a href="/contacts">Контакти</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Послуги</h4>
+<ul>
+<li><a href="/pereviryty-avto-pered-pokupkoyu">Перевірка авто</a></li>
+<li><a href="/pereviryty-kvartyru-dystantsiyno">Огляд квартири</a></li>
+<li><a href="/kontrol-remontu-dystantsiyno">Контроль ремонту</a></li>
+<li><a href="/pereviryty-tovar-pered-pokupkoyu">Перевірка товару</a></li>
+<li><a href="/kamery-online">Камери онлайн</a></li>
+<li><a href="/bukovel-zaraz">Буковель зараз</a></li>
+<li><a href="/kyiv-auto-inspection">Огляд авто в Києві</a></li>
+<li><a href="/lviv-real-estate">Нерухомість у Львові</a></li>
+<li><a href="/odesa-event-shooting">Зйомка події в Одесі</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Виконавцям</h4>
+<ul>
+<li><a href="/performer-application">Стати виконавцем</a></li>
+<li><a href="/vodiyam">Водіям і курʼєрам</a></li>
+<li><a href="/dogovir-vykonavcia">Договір виконавця</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Правова інформація</h4>
+<ul>
+<li><a href="/terms">Умови користування</a></li>
+<li><a href="/privacy">Політика конфіденційності</a></li>
+<li><a href="/arbitration">Регламент арбітражу</a></li>
+<li><a href="/offer">Публічна оферта</a></li>
+<li><a href="/delete-account">Видалення акаунта</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 ФОП Мариняк А.В. Усі права захищено.</span>
+<span>Зроблено в Україні</span>
+</div>
+</div>
 </footer>
-
 <script src="/assets/analytics.js" defer></script>
+<script src="/assets/ui.js" defer></script>
 </body>
 </html>
