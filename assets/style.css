@@ -480,10 +480,6 @@ p > svg, li > svg, strong + svg, .note > svg, .note-box > svg,
 }
 .note, .note-box, .free-box, .warn-box, .info-box, .price-box { display: block; }
 
-/* ── герой без внутрішнього .container ───────────────────── */
-.hero:not(:has(> .container)) {
-  padding-inline: 20px;
-}
 .hero:not(:has(> .container)) > * {
   max-width: 1140px; margin-inline: auto;
 }
@@ -602,3 +598,6 @@ a.cat:hover h3 { color: var(--glow); }
 
 /* шість категорій рівними рядами */
 @media (min-width: 1000px) { #categories .cats { grid-template-columns: repeat(3, 1fr); } }
+
+
+.hero > .container > h1 + p { margin-top: 20px; color: var(--muted); font-size: 17.5px; max-width: 54ch; }
