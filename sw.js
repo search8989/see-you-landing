@@ -1,12 +1,11 @@
 // See You landing — Service Worker
-const CACHE = 'see-you-v2';
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/assets/style.css',
-  '/icon.svg',
-  '/manifest.webmanifest'
-];
+// v3: стилі й скрипти більше не застрягають у кеші назавжди.
+// HTML — спочатку мережа. Статика — віддаємо з кешу, але одночасно
+// тягнемо свіжу версію у фоні (stale-while-revalidate), тож оновлення
+// доїжджає до людини не пізніше наступного відкриття сторінки.
+
+const CACHE = 'see-you-v3';
+const ASSETS = ['/', '/icon.svg', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -17,20 +16,25 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    )
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
+});
+
+// дозволяє сторінці попросити воркер оновитися негайно
+self.addEventListener('message', (e) => {
+  if (e.data === 'skip-waiting') self.skipWaiting();
 });
 
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
+
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // HTML: network-first, fallback to cache
+  // HTML: спочатку мережа, кеш — лише як запасний варіант офлайн
   if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {
     event.respondWith(
       fetch(req)
@@ -39,20 +43,24 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE).then((c) => c.put(req, copy));
           return res;
         })
-        .catch(() => caches.match(req).then((m) => m || caches.match('/index.html')))
+        .catch(() => caches.match(req).then((m) => m || caches.match('/')))
     );
     return;
   }
 
-  // Static assets: cache-first
+  // Статика: віддаємо кеш одразу, але паралельно оновлюємо його з мережі
   event.respondWith(
-    caches.match(req).then((cached) =>
-      cached ||
-      fetch(req).then((res) => {
-        const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put(req, copy));
-        return res;
-      })
-    )
+    caches.match(req).then((cached) => {
+      const fresh = fetch(req)
+        .then((res) => {
+          if (res && res.status === 200) {
+            const copy = res.clone();
+            caches.open(CACHE).then((c) => c.put(req, copy));
+          }
+          return res;
+        })
+        .catch(() => cached);
+      return cached || fresh;
+    })
   );
 });
