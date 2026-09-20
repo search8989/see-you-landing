@@ -1111,7 +1111,8 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   .hero-phone .shot {
     position: absolute;
     inset: 0;
-    opacity: 1;
+    opacity: 0;
+    animation: shot-cycle 15s linear infinite;
   }
 
   .hero-phone .shot img {
@@ -1121,14 +1122,14 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   }
 
   .shot.s1 { animation-delay: 0s; }
-  .shot.s2 { animation-delay: 4s; }
-  .shot.s3 { animation-delay: 8s; }
+  .shot.s2 { animation-delay: 5s; }
+  .shot.s3 { animation-delay: 10s; }
 
   @keyframes shot-cycle {
     0%   { opacity: 0; }
-    4%   { opacity: 1; }
+    3%   { opacity: 1; }
     30%  { opacity: 1; }
-    34%  { opacity: 0; }
+    33%  { opacity: 0; }
     100% { opacity: 0; }
   }
 
