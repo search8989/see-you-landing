@@ -168,7 +168,9 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 /* ── секції ──────────────────────────────────────────────── */
 section { padding-block: clamp(60px, 8vw, 92px); border-bottom: 1px solid var(--line); }
 section.alt { background: var(--alt); }
-.section-head { max-width: 42ch; margin-bottom: 40px; }
+.section-head { max-width: none; margin-bottom: 40px; text-align: center; }
+.section-head h2 { margin-inline: auto; max-width: 26ch; }
+.section-head p { max-width: 52ch; margin-inline: auto; }
 .section-head h2 + p { margin-top: 16px; }
 .section-head p { color: var(--muted); font-size: 17.5px; margin-bottom: 0; }
 
