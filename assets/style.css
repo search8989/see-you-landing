@@ -92,11 +92,16 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 }
 .brand:hover { color: var(--text); }
 .brand-mark {
-  display: grid; place-items: center; width: 32px; height: 32px;
-  border-radius: 9px; background: var(--accent); color: #fff;
-  transition: transform .25s var(--ease), background .25s var(--ease);
+  /* Тепер це власний знак у SVG, а не іконка в кольоровому квадраті:
+     плашка під ним лише заважала б — знак сам має форму. */
+  display: block;
+  width: 34px;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  transition: transform .25s var(--ease);
 }
-.brand:hover .brand-mark { transform: rotate(-6deg) scale(1.04); background: var(--accent-hi); }
+.brand:hover .brand-mark { transform: scale(1.05); }
 
 .nav-burger {
   margin-left: auto; display: inline-grid; place-items: center;
