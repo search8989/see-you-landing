@@ -694,3 +694,32 @@ section > .container > p,
   font-family: var(--body); font-size: 12.5px; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin: 0 0 16px;
 }
+
+/* ── таблиця на телефоні: рядки стають картками ──────────── */
+@media (max-width: 719px) {
+  .compare-table, .commission-table { display: block; }
+  .compare-table thead, .commission-table thead { display: none; }
+  .compare-table tbody, .commission-table tbody { display: block; }
+  .compare-table tr, .commission-table tr {
+    display: block; margin-bottom: 14px; padding: 4px 0 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table td, .commission-table td {
+    display: flex; justify-content: space-between; gap: 18px;
+    padding: 7px 0; border: 0; text-align: right;
+  }
+  .compare-table td::before, .commission-table td::before {
+    content: attr(data-label);
+    flex: none; text-align: left; color: var(--dim);
+    font-size: 13px; letter-spacing: .04em;
+  }
+  .compare-table tbody tr td:first-child,
+  .commission-table tbody tr td:first-child {
+    display: block; text-align: left; font-family: var(--display);
+    font-weight: 800; font-size: 16.5px; letter-spacing: -.01em;
+    color: var(--text); padding-bottom: 10px;
+  }
+  .compare-table tbody tr td:first-child::before,
+  .commission-table tbody tr td:first-child::before { content: none; }
+  .compare-table td.see-you { background: none; }
+}
