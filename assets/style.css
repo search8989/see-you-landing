@@ -688,3 +688,7 @@ section > .container > p,
 
 .about-story.first { padding-top: clamp(16px, 2vw, 24px); }
 .about .crumbs { margin-bottom: 14px; }
+
+/* напис на кнопці застосунку: .nav-links a перебивав колір */
+.nav-links a.nav-cta { color: #fff; font-weight: 600; }
+.nav-links a.nav-cta:hover { color: #fff; background: var(--accent-hi); }
