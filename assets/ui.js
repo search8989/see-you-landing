@@ -107,3 +107,23 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
+
+/* Карта Google на «Контактах»: вставляємо iframe лише після кліку.
+   Так сторінка не звертається до сторонніх серверів без дії людини. */
+(function () {
+  var box = document.querySelector('[data-map]');
+  if (!box) return;
+  var btn = box.querySelector('[data-map-load]');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var frame = document.createElement('iframe');
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'no-referrer-when-downgrade';
+    frame.title = 'SEE YOU на карті Google';
+    frame.allowFullscreen = true;
+    frame.src = 'https://www.google.com/maps?q=%D0%9B%D1%8C%D0%B2%D1%96%D0%B2&output=embed';
+    btn.remove();
+    box.classList.add('is-on');
+    box.insertBefore(frame, box.firstChild);
+  });
+})();

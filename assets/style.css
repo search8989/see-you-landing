@@ -1341,3 +1341,29 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 .cta-final > .container > * { margin-inline: auto; }
 .cta-final .hero-ctas { justify-content: center; }
 .cta-final .section-head { margin-inline: auto; }
+
+/* Карта Google на сторінці контактів.
+   Вантажиться лише після натискання: інакше сторінка сама, без згоди
+   людини, зверталася б до серверів Google на кожному відкритті. */
+.map-embed {
+  margin: 18px 0 8px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: clamp(260px, 38vh, 420px);
+  border: 0;
+  border-radius: var(--r);
+  display: block;
+}
+
+.map-embed.is-on { padding: 0; border: 0; background: none; }
+.map-embed.is-on .fine { padding: 0 12px 12px; }
