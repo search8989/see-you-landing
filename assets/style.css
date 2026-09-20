@@ -1367,3 +1367,8 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 
 .map-embed.is-on { padding: 0; border: 0; background: none; }
 .map-embed.is-on .fine { padding: 0 12px 12px; }
+
+/* Реквізити ФОП на «Контактах»: потрібні одиницям, тому згорнуті.
+   Всередині лишається та сама таблиця, лише під розкриттям. */
+.req-block { margin-top: 22px; }
+.req-block .fop-block { margin: 16px 0 0; }
