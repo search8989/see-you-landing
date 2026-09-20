@@ -811,3 +811,18 @@ main.container > .steps { max-width: none; }
   .hero-ctas { justify-content: flex-start; }
   .hero-trust { align-items: flex-start; justify-content: flex-start; }
 }
+
+/* ── цитата засновника в герої (пробний варіант) ─────────── */
+.hero-quote { margin: 26px 0 0; }
+.hero-quote blockquote {
+  margin: 0; font-family: var(--display); font-weight: 400;
+  font-size: clamp(17px, 2vw, 21px); line-height: 1.45; letter-spacing: -.012em;
+  color: var(--text); max-width: 34ch;
+}
+.hero-quote figcaption { margin-top: 12px; font-size: 14.5px; color: var(--muted); }
+@media (max-width: 999px) {
+  .hero-quote blockquote { margin-inline: auto; }
+}
+@media (min-width: 1000px) {
+  .hero-quote { padding-left: 22px; border-left: 2px solid var(--accent); }
+}
