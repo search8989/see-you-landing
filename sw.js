@@ -1,10 +1,11 @@
 // See You landing — Service Worker
-// v3: стилі й скрипти більше не застрягають у кеші назавжди.
-// HTML — спочатку мережа. Статика — віддаємо з кешу, але одночасно
-// тягнемо свіжу версію у фоні (stale-while-revalidate), тож оновлення
-// доїжджає до людини не пізніше наступного відкриття сторінки.
+// v13: спочатку мережа — для всього, не лише для HTML.
+// Попередня стратегія (stale-while-revalidate) віддавала збережену копію
+// стилів і зображень, а свіжу тягнула у фон: людина щоразу бачила
+// попередню версію сайту й мусила оновлювати двічі. Тепер кеш — це лише
+// запасний варіант, коли мережі немає.
 
-const CACHE = 'see-you-v12';
+const CACHE = 'see-you-v13';
 const ASSETS = ['/', '/icon.svg', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
@@ -22,7 +23,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// дозволяє сторінці попросити воркер оновитися негайно
 self.addEventListener('message', (e) => {
   if (e.data === 'skip-waiting') self.skipWaiting();
 });
@@ -34,33 +34,15 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // HTML: спочатку мережа, кеш — лише як запасний варіант офлайн
-  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
+  event.respondWith(
+    fetch(req)
+      .then((res) => {
+        if (res && res.status === 200) {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(req, copy));
-          return res;
-        })
-        .catch(() => caches.match(req).then((m) => m || caches.match('/')))
-    );
-    return;
-  }
-
-  // Статика: віддаємо кеш одразу, але паралельно оновлюємо його з мережі
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      const fresh = fetch(req)
-        .then((res) => {
-          if (res && res.status === 200) {
-            const copy = res.clone();
-            caches.open(CACHE).then((c) => c.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => cached);
-      return cached || fresh;
-    })
+        }
+        return res;
+      })
+      .catch(() => caches.match(req).then((m) => m || caches.match('/')))
   );
 });
