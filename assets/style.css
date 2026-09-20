@@ -884,7 +884,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 }
 
 .page-home .hero-panel {
-  font-size: clamp(16px, 1.35vw, 19px);
+  font-size: clamp(16px, 1.3vw, 18.5px);
   line-height: 1.55;
   padding: clamp(16px, 1.8vw, 22px) clamp(18px, 2vw, 26px);
 }
@@ -1100,9 +1100,9 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   .hero-phone {
     display: block;
     position: absolute;
-    right: clamp(-20px, 1vw, 30px);
+    right: clamp(-40px, 1.5vw, 34px);
     top: 50%;
-    width: clamp(230px, min(22vw, 36vh), 330px);
+    width: clamp(240px, min(23vw, 40vh), 350px);
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 2;
@@ -1135,22 +1135,28 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     animation: shot-cycle 20s linear infinite;
   }
 
-  .shot.s1 { background-image: url("/assets/shots/1.jpg"); animation-delay:  0s; }
-  .shot.s2 { background-image: url("/assets/shots/2.jpg"); animation-delay:  4s; }
-  .shot.s3 { background-image: url("/assets/shots/3.jpg"); animation-delay:  8s; }
-  .shot.s4 { background-image: url("/assets/shots/4.jpg"); animation-delay: 12s; }
-  .shot.s5 { background-image: url("/assets/shots/5.jpg"); animation-delay: 16s; }
+  .shot { animation-duration: 12s; }
+  .shot.s1 { background-image: url("/assets/shots/1.jpg"); animation-delay: 0s; }
+  .shot.s2 { background-image: url("/assets/shots/2.jpg"); animation-delay: 4s; }
+  .shot.s3 { background-image: url("/assets/shots/3.jpg"); animation-delay: 8s; }
 
   @keyframes shot-cycle {
     0%   { opacity: 0; }
-    3%   { opacity: 1; }
-    20%  { opacity: 1; }
-    23%  { opacity: 0; }
+    4%   { opacity: 1; }
+    30%  { opacity: 1; }
+    34%  { opacity: 0; }
     100% { opacity: 0; }
   }
 
-  /* Око прибираємо: рука з телефоном уже дає правий бік композиції. */
-  .page-home .hero-eye { display: none; }
+  /* Око повертаємо — воно тло за рукою, тому тихе й велике. */
+  .page-home .hero-eye {
+    display: block;
+    width: 520px;
+    height: 520px;
+    right: -170px;
+    opacity: .3;
+    z-index: 0;
+  }
 
   /* Поява має закінчуватись у тому ж положенні, що задано вище. */
   .page-home .hero-phone.rise {
@@ -1190,3 +1196,8 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   .about .crumbs { margin-bottom: 18px; }
 }
 
+/* На широких екранах рамка ширша: тоді перший рядок вміщається цілком
+   і керований перенос дає рівно два рядки, а не три. */
+@media (min-width: 1340px) {
+  .page-home .hero-row .hero-panel { max-width: 720px; }
+}
