@@ -1104,7 +1104,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     /* Телефон росте знизу й виходить за межу секції — її обріже overflow
        героя. Так він може бути великим, не розсуваючи блок. */
     top: auto;
-    bottom: -52px;
+    bottom: -86px;
     width: clamp(300px, min(34vw, 58vh), 540px);
     transform: none;
     pointer-events: none;
@@ -1125,7 +1125,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     position: absolute;
     inset: 0;
     z-index: 1;
-    clip-path: polygon(27.15% 5.73%, 77.34% 8.14%, 64.16% 88.02%, 14.45% 85.61%);
+    clip-path: polygon(28.22% 6.12%, 76.17% 8.72%, 62.11% 86.46%, 16.60% 84.38%);
     background: #0A0D12;
   }
 
@@ -1185,7 +1185,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 /* На низьких вікнах телефон не ховаємо, а зменшуємо: саме там більшість
    відвідувачів із ноутбуками, і права частина героя не має бути порожньою. */
 @media (min-width: 1000px) and (max-height: 700px) {
-  .hero-phone { width: clamp(260px, 54vh, 460px); bottom: -28px; }
+  .hero-phone { width: clamp(260px, 54vh, 460px); bottom: -64px; }
 }
 
 @media (max-height: 420px) {
