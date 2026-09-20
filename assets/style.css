@@ -1111,8 +1111,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   .hero-phone .shot {
     position: absolute;
     inset: 0;
-    opacity: 0;
-    animation: shot-cycle 12s linear infinite;
+    opacity: 1;
   }
 
   .hero-phone .shot img {
