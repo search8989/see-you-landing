@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/assets/style.css" />
 </head>
-<body>
+<body class="page-map">
 <nav class="nav">
 <div class="container nav-inner">
 <a class="brand" href="/"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span>SEE YOU</span></a>
@@ -36,7 +36,7 @@
 <a href="/#categories">Категорії</a>
 <a href="/de-pratsyuyemo">Де працює</a>
 <a href="/contacts">Контакти</a>
-<a class="nav-cta" href="https://app.see-you.app">Відкрити застосунок</a>
+<a class="nav-cta" href="https://app.see-you.app/signup">Відкрити застосунок</a>
 </div>
 </div>
 </nav>
@@ -52,6 +52,25 @@
     </div>
   </div>
 </header>
+
+<section class="alt" id="mapa">
+  <div class="container">
+    <div class="section-head reveal"><h2>Де вже є виконавці</h2></div>
+    <div class="region-tabs" role="tablist">
+      <button class="region-tab is-active" role="tab" data-region="ua" aria-selected="true">Україна</button>
+      <button class="region-tab" role="tab" data-region="eu" aria-selected="false">Європа</button>
+      <button class="region-tab" role="tab" data-region="as" aria-selected="false">Азія</button>
+    </div>
+    <div class="map-frame">
+      <div id="syMap" class="map-box" role="img" aria-label="Карта міст, де є виконавці"></div>
+      <p class="map-empty" id="mapEmpty" hidden>У цьому регіоні виконавців поки немає.</p>
+    </div>
+    <div class="map-cta">
+      <p>Не бачите свого міста на карті?</p>
+      <a class="btn btn-primary" href="/performer-application">Станьте першим у своєму місті</a>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="container">
@@ -156,6 +175,18 @@
 </div>
 </div>
 </footer>
+
+<script>
+/* Міста, де є підтверджені виконавці. Порожній список — карта чесно
+   покаже, що в регіоні ще нікого немає, і запропонує стати першим.
+   Додати місто: {name:'Львів', lat:49.8397, lon:24.0297}. */
+window.SY_CITIES = {
+  ua: [],
+  eu: [],
+  as: []
+};
+</script>
+<script src="/assets/map.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 <script src="/assets/ui.js" defer></script>
 </body>

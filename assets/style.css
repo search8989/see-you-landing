@@ -1184,3 +1184,108 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 @media (min-width: 1340px) {
   .page-home .hero-row .hero-panel { max-width: 720px; }
 }
+
+/* ── Сторінка «Де працює»: герой по центру + карта покриття ───────────── */
+
+.page-map .hero > .container { text-align: center; }
+.page-map .hero h1 { margin-inline: auto; }
+.page-map .hero-sub { margin-inline: auto; }
+.page-map .hero .subs { justify-content: center; }
+.page-map .hero-ctas { justify-content: center; }
+.page-map .hero .crumbs { justify-content: center; }
+
+.region-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.region-tab {
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: color .18s, border-color .18s, background .18s;
+}
+
+.region-tab:hover { color: var(--text); border-color: var(--glow); }
+
+.region-tab.is-active {
+  color: var(--accent-text, #061229);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.map-frame {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.map-box {
+  width: 100%;
+  height: clamp(320px, 46vh, 520px);
+}
+
+/* Поки Leaflet не завантажився або не зміг — блок лишається охайним. */
+.map-box.map-failed::after {
+  content: "Карта не завантажилась. Перезавантажте сторінку.";
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.map-empty {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(14, 17, 22, .86);
+  border: 1px solid var(--line);
+  color: var(--read);
+  font-size: 15px;
+  z-index: 500;
+  text-align: center;
+}
+
+.map-cta {
+  margin-top: 26px;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.map-cta p { margin: 0; color: var(--muted); }
+
+/* Leaflet малює свої підписи світлими — приводимо до палітри сайту. */
+.leaflet-container { background: #0B0E13; font: inherit; }
+
+/* Світлі плитки OSM переводимо в темну гаму сайту. */
+.leaflet-tile-pane { filter: invert(1) hue-rotate(185deg) brightness(.85) contrast(.92) saturate(.65); }
+.leaflet-control-attribution {
+  background: rgba(14, 17, 22, .8) !important;
+  color: var(--dim) !important;
+}
+.leaflet-control-attribution a { color: var(--muted) !important; }
+.leaflet-tooltip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  box-shadow: none;
+}
+.leaflet-tooltip-top::before { border-top-color: var(--line); }
+
