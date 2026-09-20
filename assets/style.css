@@ -1102,7 +1102,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     top: auto;
     bottom: -86px;
     width: clamp(280px, min(34vw, 58vh), 540px);
-    aspect-ratio: 620 / 930;
+    aspect-ratio: 700 / 1050;
     transform: none;
     pointer-events: none;
     z-index: 2;
