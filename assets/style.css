@@ -205,7 +205,8 @@ section.alt { background: var(--alt); }
 
 /* ── кроки ───────────────────────────────────────────────── */
 .steps { display: grid; gap: 20px; list-style: none; padding: 0; margin: 24px 0 0; counter-reset: step; }
-@media (min-width: 760px) { .steps { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); } }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); } }
+@media (min-width: 1000px) { .steps { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; } }
 .step, .steps > li {
   position: relative; border-top: 2px solid var(--line-strong);
   padding: 22px 0 0; margin: 0; background: none;
