@@ -812,3 +812,12 @@ main.container > .steps { max-width: none; }
   .hero-trust { align-items: flex-start; justify-content: flex-start; }
 }
 
+
+/* ── перший абзац героя в рамці ──────────────────────────── */
+.hero-panel {
+  padding: 16px 20px; border-radius: var(--r);
+  background: linear-gradient(180deg, rgba(61,107,255,.10), rgba(61,107,255,.05));
+  border: 1px solid rgba(61,107,255,.22);
+  color: var(--read);
+}
+@media (max-width: 999px) { .hero-panel { margin-inline: auto; } }
