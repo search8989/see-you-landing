@@ -801,8 +801,13 @@ main.container > .steps { max-width: none; }
   .hero-ctas .btn-secondary { border-color: var(--line); color: var(--muted); }
   .hero-trust { margin-top: 24px; gap: 8px; font-size: 14px; }
 }
+/* на широких екранах герой лишається ліворуч, поруч із графікою ока */
 @media (min-width: 1000px) {
-  .hero > .container > * { max-width: none; }
-  .hero::after { display: none; }
-  .hero h1 { max-width: 17ch; }
+  .hero > .container { text-align: left; }
+  .hero > .container > * { position: relative; z-index: 1; max-width: 640px; margin-inline: 0; }
+  .hero h1 { max-width: 16ch; margin-inline: 0; }
+  .hero-sub { margin-inline: 0; max-width: 46ch; }
+  .hero-eyebrow { margin-inline: 0; }
+  .hero-ctas { justify-content: flex-start; }
+  .hero-trust { align-items: flex-start; justify-content: flex-start; }
 }
