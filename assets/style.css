@@ -1098,7 +1098,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   /* Телефон має 94% висоти цього контейнера, тож саме він визначає,
      наскільки великим може бути корпус. Мінімальна висота дає запас,
      не обрізаючи нічого: герой просто стає трохи вищим. */
-  .page-home .hero > .container { min-height: min(68vh, 560px); }
+  .page-home .hero > .container { min-height: min(78vh, 660px); }
 
   .hero-phone {
     display: block;
@@ -1109,7 +1109,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     top: 50%;
     bottom: auto;
     transform: translateY(-50%);
-    height: min(94%, 72vh, 600px);
+    height: min(104%, 82vh, 700px);
     width: auto;
     aspect-ratio: 780 / 1211;
     pointer-events: none;
@@ -1182,7 +1182,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 /* На вужчих і низьких вікнах міняється розмір спільного контейнера —
    самі композиції всередині лишаються недоторканими. */
 @media (min-width: 1000px) and (max-height: 700px) {
-  .hero-phone { height: min(96%, 82vh, 520px); }
+  .hero-phone { height: min(106%, 90vh, 600px); }
 }
 
 @media (max-height: 420px) {
