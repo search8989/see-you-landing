@@ -1086,6 +1086,13 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 
 .hero-phone { display: none; }
 
+/* Керований перенос у герої: на вузьких екранах рядок ламається сам. */
+.br-desk { display: none; }
+
+@media (min-width: 1000px) {
+  .br-desk { display: inline; }
+}
+
 @media (min-width: 1000px) {
   /* Позиціонуємо від усього героя, а не від рядка з рамкою. */
   .page-home .hero-row { position: static; }
@@ -1157,7 +1164,13 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   }
 }
 
-@media (max-height: 700px) {
+/* На низьких вікнах телефон не ховаємо, а зменшуємо: саме там більшість
+   відвідувачів із ноутбуками, і права частина героя не має бути порожньою. */
+@media (min-width: 1000px) and (max-height: 700px) {
+  .hero-phone { width: clamp(150px, 26vh, 230px); right: clamp(-10px, 1vw, 24px); }
+}
+
+@media (max-height: 420px) {
   .hero-phone { display: none; }
 }
 
