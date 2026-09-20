@@ -5,7 +5,7 @@
 // попередню версію сайту й мусила оновлювати двічі. Тепер кеш — це лише
 // запасний варіант, коли мережі немає.
 
-const CACHE = 'see-you-v29';
+const CACHE = 'see-you-v30';
 const ASSETS = ['/', '/icon.svg', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
