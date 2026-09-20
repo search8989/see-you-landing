@@ -1100,10 +1100,13 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   .hero-phone {
     display: block;
     position: absolute;
-    right: clamp(-40px, 1.5vw, 34px);
-    top: 50%;
-    width: clamp(240px, min(23vw, 40vh), 350px);
-    transform: translateY(-50%);
+    right: clamp(-30px, 3vw, 70px);
+    /* Телефон росте знизу й виходить за межу секції — її обріже overflow
+       героя. Так він може бути великим, не розсуваючи блок. */
+    top: auto;
+    bottom: -52px;
+    width: clamp(300px, 31vw, 480px);
+    transform: none;
     pointer-events: none;
     z-index: 2;
   }
@@ -1151,10 +1154,11 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   /* Око повертаємо — воно тло за рукою, тому тихе й велике. */
   .page-home .hero-eye {
     display: block;
-    width: 520px;
-    height: 520px;
-    right: -170px;
-    opacity: .3;
+    width: 560px;
+    height: 560px;
+    right: -210px;
+    top: 40%;
+    opacity: .24;
     z-index: 0;
   }
 
@@ -1165,15 +1169,15 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   }
 
   @keyframes phone-in {
-    from { opacity: 0; transform: translateY(-46%) scale(.97); }
-    to   { opacity: 1; transform: translateY(-50%); }
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: none; }
   }
 }
 
 /* На низьких вікнах телефон не ховаємо, а зменшуємо: саме там більшість
    відвідувачів із ноутбуками, і права частина героя не має бути порожньою. */
 @media (min-width: 1000px) and (max-height: 700px) {
-  .hero-phone { width: clamp(150px, 26vh, 230px); right: clamp(-10px, 1vw, 24px); }
+  .hero-phone { width: clamp(250px, 62vh, 400px); bottom: -40px; }
 }
 
 @media (max-height: 420px) {
