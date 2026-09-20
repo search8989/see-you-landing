@@ -616,63 +616,6 @@ section > .container > p,
   max-width: 72ch;
 }
 
-/* ── сторінка «Про SEE YOU» ──────────────────────────────── */
-.about .container { max-width: 1040px; }
-.about section { border: 0; padding: 0; }
-.read { max-width: 66ch; }
-.read p { font-size: 18.5px; line-height: 1.62; color: var(--read); margin-bottom: 18px; }
-
-.eyebrow {
-  font-family: var(--body); font-size: 12.5px; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin: 0 0 16px;
-}
-.about-intro { padding-block: clamp(28px, 4vw, 44px) clamp(44px, 6vw, 68px); }
-.about-intro h1 {
-  font-size: clamp(32px, 4.6vw, 52px); max-width: 20ch; margin-bottom: 26px;
-}
-.quiet-link { font-size: 15.5px; color: var(--muted); margin-top: 10px; }
-
-.about-story {
-  display: grid; gap: 30px;
-  padding-block: clamp(36px, 5vw, 56px);
-  border-top: 1px solid var(--line) !important;
-}
-@media (min-width: 820px) {
-  .about-story { grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
-}
-.about-story h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 22px; }
-.portrait { margin: 0; }
-.portrait-frame {
-  width: 100%; max-width: 280px; aspect-ratio: 4 / 5; border-radius: 16px;
-  border: 1px solid var(--line-strong);
-  background:
-    radial-gradient(120% 90% at 30% 20%, rgba(110,168,255,.10), transparent 60%),
-    linear-gradient(170deg, var(--surface-2), var(--surface));
-}
-.portrait img { width: 100%; height: auto; max-width: 280px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; display: block; }
-.sign { margin-top: 26px; font-size: 15px; color: var(--muted); }
-.sign b { display: block; color: var(--text); font-size: 16.5px; font-weight: 600; margin-bottom: 2px; }
-
-.pull {
-  margin: 0; padding-block: clamp(34px, 5vw, 52px);
-  border-top: 1px solid var(--line);
-  font-family: var(--display); font-weight: 400;
-  font-size: clamp(19px, 2.4vw, 26px); line-height: 1.45; letter-spacing: -.015em;
-  color: var(--text); max-width: 26ch;
-}
-
-.about-values { padding-block: clamp(36px, 5vw, 56px); border-top: 1px solid var(--line) !important; }
-.about-values h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 30px; }
-.values { display: grid; gap: 28px 34px; }
-@media (min-width: 820px) { .values { grid-template-columns: repeat(3, 1fr); } }
-.value h3 { font-family: var(--body); font-weight: 600; font-size: 17.5px; letter-spacing: 0; margin-bottom: 10px; }
-.value p { color: var(--read); font-size: 16px; margin: 0; }
-
-.about-cta { padding-block: clamp(40px, 6vw, 64px) clamp(20px, 3vw, 32px); border-top: 1px solid var(--line) !important; }
-.about-cta h2 { font-size: clamp(24px, 3.4vw, 36px); margin-bottom: 16px; }
-.about-cta .btn { margin-top: 12px; }
-.about-cta .fine { margin-top: 28px; font-size: 14.5px; color: var(--dim); }
-
 /* ── кнопка застосунку в шапці помітніша ─────────────────── */
 .nav-cta { background: var(--accent); border-color: var(--accent); color: #fff; }
 .nav-cta:hover { background: var(--accent-hi); border-color: var(--accent-hi); color: #fff; }
@@ -680,15 +623,74 @@ section > .container > p,
 /* фото засновника — чорно-біле */
 
 
-.portrait img { border: 1px solid var(--line); }
 
-.about-story.first { border-top: 0 !important; padding-top: clamp(24px, 3vw, 36px); }
-.about-story h1 { font-size: clamp(25px, 2.8vw, 34px); margin-bottom: 20px; line-height: 1.12; max-width: 22ch; }
 .lead-strong { font-size: 19px; line-height: 1.6; color: var(--read); max-width: 66ch; margin-bottom: 18px; }
 
-.about-story.first { padding-top: clamp(16px, 2vw, 24px); }
-.about .crumbs { margin-bottom: 14px; }
 
 /* напис на кнопці застосунку: .nav-links a перебивав колір */
 .nav-links a.nav-cta { color: #fff; font-weight: 600; }
 .nav-links a.nav-cta:hover { color: #fff; background: var(--accent-hi); }
+
+/* ── сторінка «Про SEE YOU» ──────────────────────────────── */
+.about { --gap: clamp(44px, 5.4vw, 72px); }
+.about .container { max-width: 1040px; }
+.about section { border: 0; padding: 0; }
+
+.about .crumbs { margin: 0 0 var(--gap); }
+
+.read { max-width: 64ch; }
+.read p { font-size: 18.5px; line-height: 1.62; color: var(--read); margin-bottom: 18px; }
+.read p:last-child { margin-bottom: 0; }
+
+/* блоки розділені однаковим кроком, заголовок не торкається лінії */
+.about .about-story,
+.about .about-values,
+.about .about-cta {
+  padding-block: var(--gap);
+  border-top: 1px solid var(--line);
+}
+.about .about-story.first { padding-top: 0; border-top: 0; }
+.about .about-cta { padding-bottom: clamp(24px, 3vw, 36px); }
+
+.about h1 { font-size: clamp(25px, 2.8vw, 34px); line-height: 1.12; max-width: 22ch; margin-bottom: 22px; }
+.about h2 { font-size: clamp(23px, 2.8vw, 31px); margin-bottom: 26px; }
+
+/* історія: фото і текст тримають спільну висоту */
+.about-story { display: grid; gap: 28px; }
+@media (min-width: 880px) {
+  .about-story { grid-template-columns: 320px 1fr; gap: 52px; align-items: start; }
+  .about-story .portrait { position: sticky; top: calc(var(--nav-h) + 24px); }
+}
+.portrait { margin: 0; }
+.portrait img {
+  width: 100%; height: auto; max-width: 320px; aspect-ratio: 3 / 4;
+  object-fit: cover; border-radius: 16px; display: block;
+  border: 1px solid var(--line);
+}
+.sign { margin-top: 28px; font-size: 15px; color: var(--muted); }
+.sign b { display: block; color: var(--text); font-size: 16.5px; font-weight: 600; margin-bottom: 2px; }
+
+/* велика фраза: більше повітря і власна міра рядка */
+.about .pull {
+  margin: 0; padding: var(--gap) 0 var(--gap) 26px;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(var(--accent), var(--accent)) left var(--gap) / 2px calc(100% - 2 * var(--gap)) no-repeat;
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(19px, 2.3vw, 25px); line-height: 1.45; letter-spacing: -.015em;
+  color: var(--text); max-width: 34ch;
+}
+
+.values { display: grid; gap: 28px 34px; }
+@media (min-width: 820px) { .values { grid-template-columns: repeat(3, 1fr); } }
+.value h3 { font-family: var(--body); font-weight: 600; font-size: 17.5px; letter-spacing: 0; margin-bottom: 10px; }
+.value p { color: var(--read); font-size: 16px; margin: 0; }
+.about-values .quiet-link { margin-top: 28px; }
+
+.about-cta .read { margin-bottom: 26px; }
+.about-cta .quiet-link { margin-top: 18px; }
+.about-cta .fine { margin-top: 26px; font-size: 14.5px; color: var(--dim); }
+.quiet-link { font-size: 15.5px; color: var(--muted); }
+.eyebrow {
+  font-family: var(--body); font-size: 12.5px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin: 0 0 16px;
+}
