@@ -415,7 +415,7 @@ ol li::marker { color: var(--glow); font-weight: 600; }
   padding-block: 56px 40px; color: var(--dim); font-size: 14.5px;
 }
 .footer-grid { display: grid; gap: 34px 30px; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); margin-bottom: 34px; }
-@media (min-width: 1000px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1.1fr 1fr 1.2fr; } }
+@media (min-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1.25fr 1.1fr 1.2fr; } }
 .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .footer-col li { padding-left: 0; margin: 0; }
 .footer-col li::before { display: none; }
