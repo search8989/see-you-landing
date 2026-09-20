@@ -811,3 +811,6 @@ main.container > .steps { max-width: none; }
   .hero-eye { width: 230px; height: 230px; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-eye { animation: none; } }
+
+/* примітка під цінами: один рядок, поки ширини вистачає */
+section > .container > p.price-note, .price-note { max-width: none; text-align: center; }
