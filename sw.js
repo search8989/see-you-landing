@@ -4,7 +4,7 @@
 // тягнемо свіжу версію у фоні (stale-while-revalidate), тож оновлення
 // доїжджає до людини не пізніше наступного відкриття сторінки.
 
-const CACHE = 'see-you-v3';
+const CACHE = 'see-you-v4';
 const ASSETS = ['/', '/icon.svg', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
