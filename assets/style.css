@@ -737,3 +737,6 @@ section > .container > p,
 }
 h2 + .why-grid { margin-top: 28px; }
 .why-grid + p, .why-grid + .note { margin-top: 30px; }
+
+/* ── кнопка-смуга по центру ──────────────────────────────── */
+.cta-big { margin-inline: auto; }
