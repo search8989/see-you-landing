@@ -977,3 +977,71 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   }
   .page-home .hero-rule { margin-top: 22px; }
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   «Про нас»: два останні блоки виглядали як текст, кинутий у порожнечу —
+   ліве вирівнювання, різна висота колонок і великий провал перед
+   посиланням. Робимо з них картки й рамку, як на решті сайту.
+   ───────────────────────────────────────────────────────────────────── */
+
+.about .about-values > h2,
+.about .about-cta > h2 {
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* Три цінності — картки однакової висоти, а не три абзаци різної довжини. */
+.about .values {
+  gap: 18px;
+  align-items: stretch;
+}
+
+.about .value {
+  padding: clamp(18px, 2vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+}
+
+.about .value h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.about .about-values .quiet-link {
+  margin-top: 22px;
+  text-align: center;
+}
+
+/* Фінальний блок — та сама рамка, що й у cta-final на інших сторінках. */
+.about .about-cta {
+  /* Відступ уже дає нижній padding блоку цінностей — свій не додаємо,
+     інакше між посиланням і рамкою провалюється півтори сотні пікселів. */
+  margin-top: 0;
+  border-top: 0;
+  padding: clamp(32px, 4vw, 56px) clamp(20px, 3vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(120% 140% at 88% 0%, rgba(61,107,255,.16), transparent 62%),
+    var(--surface);
+  text-align: center;
+}
+
+.about .about-cta > * {
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+.about .about-cta .btn {
+  margin-inline: auto;
+}
+
+.about .about-cta .fine {
+  margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+  .about .about-cta { padding-inline: 18px; }
+  .about .about-cta .btn { width: 100%; }
+}
