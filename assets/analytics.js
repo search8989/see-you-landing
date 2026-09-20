@@ -1,7 +1,9 @@
-/* SEE YOU — Google Analytics 4 + Consent Mode v2 + цілі.
-   Лічильник вмикається лише після згоди. До згоди GA не завантажується
-   і жодних cookies не ставить. Банер не перекриває нижню панель із
-   кнопками «Замовити» / «Заробити». */
+/* SEE YOU — Google Analytics 4 з попередньою згодою.
+   До згоди GA не завантажується і жодних аналітичних cookies не ставить
+   (Consent Mode v2: усе denied за замовчуванням). Це вимога GDPR та ePrivacy
+   для відвідувачів з ЄС і водночас безпечний варіант для України.
+   Вибір зберігається в localStorage і його можна змінити будь-коли:
+   посилання «Налаштування cookies» у підвалі. */
 (function () {
   var GA = 'G-LQN6RP1NYR';
   var KEY = 'sy_consent';           // "granted" | "denied"
@@ -35,7 +37,7 @@
     gtag('config', GA, { anonymize_ip: true });
   }
 
-  // ── події ────────────────────────────────────────────────────────────
+  // ── події (працюють лише після згоди) ───────────────────────────────
   function track(name, params) {
     try {
       if (read() !== 'granted') return;
@@ -54,7 +56,6 @@
     if (href.indexOf('role=customer') > -1) track('click_order', { label: label, page: where });
     else if (href.indexOf('performer-application') > -1) track('click_earn', { label: label, page: where });
     else if (href.indexOf(APP) > -1) track('click_app', { label: label, page: where });
-    else if (href.indexOf('tel:') === 0) track('click_phone', { page: where });
     else if (href.indexOf('mailto:') === 0) track('click_email', { page: where });
   }, true);
 
@@ -66,40 +67,42 @@
     }
   }, true);
 
-  // ── банер згоди ──────────────────────────────────────────────────────
-  function banner() {
-    var css = document.createElement('style');
-    css.textContent =
-      '.sy-consent{position:fixed;left:12px;right:12px;bottom:calc(72px + env(safe-area-inset-bottom));z-index:55;' +
-      'max-width:640px;margin:0 auto;background:#fff;color:#1a1a1a;border:1px solid #e5e9f0;border-radius:14px;' +
-      'padding:16px 18px;box-shadow:0 18px 50px -20px rgba(16,24,40,.45);font-size:14.5px;line-height:1.55}' +
-      '.sy-consent p{margin:0 0 12px}.sy-consent a{color:#2563eb}' +
-      '.sy-consent div{display:flex;flex-wrap:wrap;gap:8px}' +
-      '.sy-consent button{font:inherit;font-weight:600;cursor:pointer;border-radius:10px;padding:10px 18px;border:1px solid transparent}' +
-      '.sy-consent .ok{background:#2563eb;color:#fff}' +
-      '.sy-consent .no{background:#fff;color:#2563eb;border-color:#cfdcfa}' +
-      '@media(min-width:900px){.sy-consent{bottom:20px}}';
-    document.head.appendChild(css);
+  // ── банер згоди ─────────────────────────────────────────────────────
+  var box = null;
 
-    var box = document.createElement('div');
+  function decide(ok) {
+    save(ok ? 'granted' : 'denied');
+    if (ok) {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      load();
+    }
+    if (box) { box.remove(); box = null; }
+  }
+
+  function banner() {
+    if (box) return;
+    box = document.createElement('div');
     box.className = 'sy-consent';
     box.setAttribute('role', 'dialog');
-    box.setAttribute('aria-label', 'Аналітика');
+    box.setAttribute('aria-label', 'Згода на аналітику');
     box.innerHTML =
       '<p>Ми хочемо розуміти, які сторінки корисні, і для цього вмикаємо Google Analytics. ' +
-      'Без вашої згоди аналітика не працює. <a href="/privacy">Політика конфіденційності</a></p>' +
+      'Без вашої згоди аналітика не працює й аналітичні cookies не встановлюються. ' +
+      '<a href="/privacy">Політика конфіденційності</a></p>' +
       '<div><button type="button" class="ok">Прийняти</button>' +
       '<button type="button" class="no">Лише необхідні</button></div>';
-
-    function decide(ok) {
-      save(ok ? 'granted' : 'denied');
-      if (ok) { gtag('consent', 'update', { analytics_storage: 'granted' }); load(); }
-      box.remove();
-    }
     box.querySelector('.ok').addEventListener('click', function () { decide(true); });
     box.querySelector('.no').addEventListener('click', function () { decide(false); });
     document.body.appendChild(box);
   }
+
+  // дозволяємо змінити вибір: <a href="#cookies"> або [data-cookies]
+  document.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest ? e.target.closest('[data-cookies], a[href="#cookies"]') : null;
+    if (!t) return;
+    e.preventDefault();
+    banner();
+  });
 
   function start() {
     var saved = read();
@@ -109,7 +112,7 @@
       return;
     }
     if (saved === 'denied') return;
-    setTimeout(banner, 1500);   // не заважаємо першому екрану
+    setTimeout(banner, 1200);   // не перекриваємо перший екран
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
