@@ -205,7 +205,7 @@ section.alt { background: var(--alt); }
 
 /* ── кроки ───────────────────────────────────────────────── */
 .steps { display: grid; gap: 20px; list-style: none; padding: 0; margin: 24px 0 0; counter-reset: step; }
-@media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); } }
 .step, .steps > li {
   position: relative; border-top: 2px solid var(--line-strong);
   padding: 22px 0 0; margin: 0; background: none;
@@ -499,7 +499,7 @@ main.container { padding-block: clamp(32px, 4vw, 52px) clamp(56px, 8vw, 88px); }
 main.container > h1 { margin-bottom: 8px; }
 main.container > h2 { margin-top: 52px; }
 main.container > h3 { margin-top: 30px; }
-main.container > p, main.container > ul, main.container > ol { max-width: 78ch; }
+main.container > p, main.container > ul:not(.steps), main.container > ol:not(.steps) { max-width: 78ch; }
 
 /* ── банер встановлення: не заважає першому екрану ───────── */
 .pwa-banner { opacity: 0; transform: translateY(12px); pointer-events: none;
@@ -778,3 +778,5 @@ main.container > .back { margin-bottom: 18px; }
 /* ── кроки на сторінці водіїв: чотири в ряд, без сироти ─── */
 @media (min-width: 1100px) { .page-drivers .steps { grid-template-columns: repeat(4, 1fr); } }
 @media (min-width: 760px) and (max-width: 1099px) { .page-drivers .steps { grid-template-columns: repeat(2, 1fr); } }
+
+main.container > .steps { max-width: none; }
