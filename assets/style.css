@@ -1289,3 +1289,9 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 }
 .leaflet-tooltip-top::before { border-top-color: var(--line); }
 
+.map-note {
+  margin: 14px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+}
