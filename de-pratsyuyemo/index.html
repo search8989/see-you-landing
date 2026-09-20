@@ -53,6 +53,10 @@
       <button class="region-tab is-active" role="tab" data-region="ua" aria-selected="true">Україна</button>
       <button class="region-tab" role="tab" data-region="eu" aria-selected="false">Європа</button>
       <button class="region-tab" role="tab" data-region="as" aria-selected="false">Азія</button>
+      <button class="region-tab" role="tab" data-region="af" aria-selected="false">Африка</button>
+      <button class="region-tab" role="tab" data-region="na" aria-selected="false">Північна Америка</button>
+      <button class="region-tab" role="tab" data-region="sa" aria-selected="false">Південна Америка</button>
+      <button class="region-tab" role="tab" data-region="oc" aria-selected="false">Австралія і Океанія</button>
     </div>
     <div class="map-frame">
       <div id="syMap" class="map-box" role="img" aria-label="Карта міст, де є виконавці"></div>
@@ -164,11 +168,7 @@
 /* Міста, де є підтверджені виконавці. Порожній список — карта чесно
    покаже, що в регіоні ще нікого немає, і запропонує стати першим.
    Додати місто: {name:'Львів', lat:49.8397, lon:24.0297}. */
-window.SY_CITIES = {
-  ua: [],
-  eu: [],
-  as: []
-};
+window.SY_CITIES = { ua: [], eu: [], as: [], af: [], na: [], sa: [], oc: [] };
 </script>
 <script src="/assets/map.js" defer></script>
 <script src="/assets/analytics.js" defer></script>

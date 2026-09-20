@@ -1106,7 +1106,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     transform: translateY(-50%);
     height: min(86%, 64vh, 520px);
     width: auto;
-    aspect-ratio: 700 / 1044;
+    aspect-ratio: 780 / 1211;
     pointer-events: none;
     z-index: 2;
   }
