@@ -1078,3 +1078,121 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   .hero .crumbs { margin-bottom: 0; font-size: 12.5px; }
 }
 
+/* ─────────────────────────────────────────────────────────────────────
+   Телефон у герої головної: на екрані по черзі змінюються фото
+   результатів замовлень. Слайдшоу — чистий CSS, без скриптів.
+   Фото кладуться у /assets/shots/1.jpg … 5.jpg (вертикальні, 9:19.5).
+   ───────────────────────────────────────────────────────────────────── */
+
+.hero-phone { display: none; }
+
+@media (min-width: 1000px) {
+  /* Телефон позиціонуємо від усього героя, а не від рядка з рамкою:
+     інакше він звисає нижче секції і його ріже межа блоку. */
+  .page-home .hero-row { position: static; }
+
+  .hero-phone {
+    display: block;
+    position: absolute;
+    right: clamp(0px, 3vw, 48px);
+    top: 50%;
+    /* Ширина обмежена висотою вікна: висота корпусу = ширина × 2,17. */
+    width: clamp(150px, min(14vw, 23vh), 215px);
+    transform: translateY(-50%) rotate(-4deg);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Корпус: тонка світла рамка по краю дає відчуття скла, а не
+     намальованого прямокутника. */
+  .phone-body {
+    position: relative;
+    aspect-ratio: 9 / 19.5;
+    padding: 9px;
+    border-radius: 34px;
+    background: linear-gradient(160deg, #2B3444 0%, #151A23 42%, #0C1015 100%);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.07),
+      0 28px 60px rgba(0,0,0,.55),
+      0 4px 14px rgba(0,0,0,.4);
+  }
+
+  .phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 26px;
+    overflow: hidden;
+    background: #0A0D12;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 14px; left: 50%;
+    transform: translateX(-50%);
+    width: 58px; height: 5px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.14);
+  }
+
+  /* Слайди. Кожен видимий 4 с із 20 с циклу, перехід — мʼяке згасання. */
+  .shot {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: shot-cycle 20s linear infinite;
+  }
+
+  .shot.s1 { background-image: url("/assets/shots/1.jpg"); animation-delay:  0s; }
+  .shot.s2 { background-image: url("/assets/shots/2.jpg"); animation-delay:  4s; }
+  .shot.s3 { background-image: url("/assets/shots/3.jpg"); animation-delay:  8s; }
+  .shot.s4 { background-image: url("/assets/shots/4.jpg"); animation-delay: 12s; }
+  .shot.s5 { background-image: url("/assets/shots/5.jpg"); animation-delay: 16s; }
+
+  @keyframes shot-cycle {
+    0%    { opacity: 0; }
+    3%    { opacity: 1; }
+    20%   { opacity: 1; }
+    23%   { opacity: 0; }
+    100%  { opacity: 0; }
+  }
+
+  /* Відблиск скла поверх фото — те, що відрізняє макет пристрою від
+     просто картинки в рамці. */
+  .phone-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(118deg, rgba(255,255,255,.10) 0 18%, transparent 34%);
+    pointer-events: none;
+  }
+
+  /* Око лишається, але ще тихіше: воно тепер тло для телефона. */
+  .page-home .hero-eye { opacity: .32; }
+
+  /* Анімація появи має закінчуватись у тому ж положенні, що задано в
+     .hero-phone. Спільна keyframes rise-in ставить transform: none і
+     знімає центрування — тому для телефона окремі кадри. */
+  .page-home .hero-phone.rise {
+    animation-name: phone-in;
+    animation-duration: .8s;
+  }
+
+  @keyframes phone-in {
+    from { opacity: 0; transform: translateY(-46%) rotate(-4deg) scale(.96); }
+    to   { opacity: 1; transform: translateY(-50%) rotate(-4deg); }
+  }
+}
+
+/* Низькі вікна: телефон з'їдає висоту, тож ховаємо. */
+@media (max-height: 700px) {
+  .hero-phone { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot { animation: none; }
+  .shot.s1 { opacity: 1; }
+}
+
