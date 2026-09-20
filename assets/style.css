@@ -1105,7 +1105,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
        героя. Так він може бути великим, не розсуваючи блок. */
     top: auto;
     bottom: -52px;
-    width: clamp(280px, min(29vw, 46vh), 440px);
+    width: clamp(300px, min(34vw, 58vh), 540px);
     transform: none;
     pointer-events: none;
     z-index: 2;
@@ -1185,7 +1185,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 /* На низьких вікнах телефон не ховаємо, а зменшуємо: саме там більшість
    відвідувачів із ноутбуками, і права частина героя не має бути порожньою. */
 @media (min-width: 1000px) and (max-height: 700px) {
-  .hero-phone { width: clamp(230px, 42vh, 380px); bottom: -34px; }
+  .hero-phone { width: clamp(260px, 54vh, 460px); bottom: -28px; }
 }
 
 @media (max-height: 420px) {
