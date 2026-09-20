@@ -1033,12 +1033,9 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
   margin-inline: auto;
 }
 
-.about .about-cta .btn {
-  margin-inline: auto;
-}
-
-.about .about-cta .fine {
-  margin-top: 20px;
+.about .about-cta .hero-ctas {
+  margin-top: 28px;
+  justify-content: center;
 }
 
 @media (max-width: 760px) {
