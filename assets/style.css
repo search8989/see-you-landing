@@ -845,7 +845,9 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
    ───────────────────────────────────────────────────────────────────── */
 
 .page-home .hero {
-  padding-block: clamp(40px, 7vw, 104px) clamp(40px, 6vw, 80px);
+  /* Нижній відступ навмисно малий: край наступної секції має визирати
+     з-під першого екрана, інакше низ виглядає порожнім. */
+  padding-block: clamp(40px, 7vw, 104px) clamp(20px, 2.4vw, 36px);
 }
 
 /* Заголовок — головний обʼєкт сторінки. Рядки розбиті вручну, тому
@@ -1134,10 +1136,10 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     /* Прямокутник кадру = габарити самої рамки екрана (з clip-path),
        з запасом 6% на поворот. Інакше після нахилу кути рамки лишаються
        незакритими і збоку зʼявляються чорні клини. */
-    left: 10.60%;
-    right: 17.83%;
-    top: 1.12%;
-    bottom: 8.54%;
+    left: 6.60%;
+    right: 13.83%;
+    top: -3.88%;
+    bottom: 3.54%;
     background-size: cover;
     background-position: center;
     /* Телефон на фото не просто нахилений, а трохи розвернутий:
