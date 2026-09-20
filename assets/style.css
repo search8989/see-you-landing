@@ -845,14 +845,17 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
    ───────────────────────────────────────────────────────────────────── */
 
 .page-home .hero {
-  padding-block: clamp(64px, 11vw, 132px) clamp(56px, 8vw, 96px);
+  padding-block: clamp(40px, 7vw, 104px) clamp(40px, 6vw, 80px);
 }
 
 /* Заголовок — головний обʼєкт сторінки. Рядки розбиті вручну, тому
    переноси однакові на всіх ширинах, а не такі, як випаде браузеру. */
 .page-home .hero-title {
   max-width: 20ch;
-  font-size: clamp(38px, 7.4vw, 92px);
+  /* Розмір обмежений і шириною, і висотою вікна: на екранах зі 150%
+     масштабом видима висота близько 500 px, і заголовок «на всю ширину»
+     виштовхував кнопки за межі першого екрана. */
+  font-size: clamp(36px, min(6.6vw, 13vh), 84px);
   line-height: .96;
   letter-spacing: -.028em;
   text-wrap: balance;
@@ -870,14 +873,14 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 
 /* Тонка лінійка задає ритм між заголовком і текстом. */
 .page-home .hero-rule {
-  margin-top: clamp(26px, 3.4vw, 44px);
+  margin-top: clamp(18px, min(2.6vw, 3.4vh), 34px);
   height: 1px;
   max-width: 100% !important;
   background: linear-gradient(90deg, var(--accent) 0, rgba(61,107,255,.35) 22%, var(--line) 52%, transparent 100%);
 }
 
 .page-home .hero-row {
-  margin-top: clamp(24px, 3vw, 38px);
+  margin-top: clamp(18px, min(2.4vw, 3vh), 30px);
 }
 
 .page-home .hero-panel {
@@ -888,17 +891,38 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 
 .page-home .hero-sub + .hero-sub,
 .page-home .hero-row + .hero-sub {
-  margin-top: clamp(18px, 2.2vw, 26px);
+  margin-top: clamp(14px, min(1.8vw, 2.4vh), 24px);
   font-size: clamp(16.5px, 1.5vw, 20px);
   color: var(--read);
 }
 
 .page-home .hero-ctas {
-  margin-top: clamp(26px, 3.2vw, 40px);
+  margin-top: clamp(18px, min(2.6vw, 3.4vh), 34px);
 }
 
 .page-home .hero-trust {
-  margin-top: clamp(24px, 3vw, 36px);
+  margin-top: clamp(16px, min(2.2vw, 2.8vh), 30px);
+}
+
+/* Низькі вікна (масштаб 125-150%, ноутбуки 13"): стискаємо все, щоб
+   кнопки лишались на першому екрані. */
+
+@media (max-height: 780px) and (min-width: 721px) {
+  .page-home .hero { padding-block: 36px 40px; }
+  .page-home .hero-title { font-size: clamp(34px, 5.4vw, 62px); }
+  .page-home .hero-panel { font-size: 16px; padding: 14px 18px; }
+  .page-home .hero-row + .hero-sub { font-size: 16.5px; }
+}
+
+@media (max-height: 580px) and (min-width: 721px) {
+  .page-home .hero { padding-block: 24px 28px; }
+  .page-home .hero-title { font-size: clamp(30px, 4.2vw, 46px); }
+  .page-home .hero-rule { margin-top: 14px; }
+  .page-home .hero-row { margin-top: 14px; }
+  .page-home .hero-panel { font-size: 15.5px; padding: 12px 16px; }
+  .page-home .hero-row + .hero-sub { margin-top: 12px; font-size: 16px; }
+  .page-home .hero-ctas { margin-top: 16px; }
+  .page-home .hero-trust { margin-top: 14px; }
 }
 
 /* Око лишається, але відходить на задній план: тепер воно фон, а не
