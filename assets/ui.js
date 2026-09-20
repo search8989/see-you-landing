@@ -6,6 +6,77 @@
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+
+  /* ── що саме показувати з рухом ─────────────────────────────────
+     Розмічати кожен абзац у 33 файлах руками — гарантія, що за місяць
+     половина сторінок лишиться без руху. Тому позначаємо тут, за структурою:
+     усе всередині секцій, крім героя (він має власну появу) і підвалу. */
+  function autoReveal() {
+    var sel = [
+      'section .section-head',
+      'section > .container > p',
+      'section > .container > ul',
+      'section > .container > ol',
+      'section .cat',
+      'section .step',
+      'section .qa',
+      'section .bullets-list',
+      'section .compare-table',
+      'section .commission-table',
+      'section .hero-ctas',
+      'section .subs',
+      'section figure',
+      'main.legal > h2',
+      'main.legal > p',
+      'main.legal > ul',
+      'main.legal > dl',
+      'main.legal > details',
+      'main.container > h2',
+      'main.container > p',
+      'main.container > ul',
+      'main.container > ol',
+      'main.container > table',
+      'main.container > .commission-table',
+      'main.container > .free-box',
+      'main.about > section',
+      'body > h2',
+      'body > .cards'
+    ].join(',');
+
+    var list = document.querySelectorAll(sel);
+    for (var i = 0; i < list.length; i++) {
+      var el = list[i];
+      if (el.closest('.hero') || el.closest('.site-footer')) continue;
+      el.classList.add('reveal');
+    }
+  }
+
+  /* ── тонка смужка прогресу читання ──────────────────────────────
+     Дешевий, але дієвий сигнал «сторінка має обсяг»: людина бачить,
+     скільки лишилось. Висота 2 px, колір акценту. */
+  function progress() {
+    if (reduce) return;
+    var bar = document.createElement('div');
+    bar.className = 'read-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+
+    var ticking = false;
+    function sync() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var p = h > 0 ? window.scrollY / h : 0;
+      bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(sync);
+    }, { passive: true });
+    window.addEventListener('resize', sync, { passive: true });
+    sync();
+  }
+
   // ── поява блоків при прокручуванні ──────────────────────────────
   function reveal() {
     var items = document.querySelectorAll('.reveal');
@@ -102,7 +173,7 @@
     sync();
   }
 
-  function start() { reveal(); menu(); nav(); faq(); tables(); pwa(); }
+  function start() { autoReveal(); reveal(); progress(); menu(); nav(); faq(); tables(); pwa(); }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();

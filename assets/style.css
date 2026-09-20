@@ -1372,3 +1372,70 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
    Всередині лишається та сама таблиця, лише під розкриттям. */
 .req-block { margin-top: 22px; }
 .req-block .fop-block { margin: 16px 0 0; }
+
+/* ─────────────────────────────────────────────────────────────────────
+   Рух при прокручуванні.
+
+   Правило одне: без JS і з вимкненою анімацією в системі сторінка
+   виглядає повністю зібраною. Рух — це підсилення, а не умова
+   видимості контенту.
+   ───────────────────────────────────────────────────────────────────── */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: opacity, transform;
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity .62s var(--ease), transform .62s var(--ease);
+  will-change: auto;
+}
+
+/* Картки й кроки підіймаються трохи помітніше й з мікромасштабом —
+   саме це читається як «дорого», якщо не перебільшувати. */
+.js .cat.reveal,
+.js .step.reveal,
+.js .safety-item.reveal {
+  transform: translateY(26px) scale(.985);
+}
+
+.js .cat.reveal.in,
+.js .step.reveal.in,
+.js .safety-item.reveal.in {
+  transform: none;
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+
+/* Смужка прогресу читання: тонка лінія під шапкою. */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--accent), var(--glow));
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Якірні переходи: плавно і без заїзду під шапку. */
+html { scroll-behavior: smooth; }
+:target, [id] { scroll-margin-top: calc(var(--nav-h, 64px) + 18px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal,
+  .js .cat.reveal,
+  .js .step.reveal,
+  .js .safety-item.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .read-progress { display: none; }
+}
