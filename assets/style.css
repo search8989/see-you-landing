@@ -1141,7 +1141,10 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     background-position: center;
     /* Телефон на фото нахилений — без повороту знімок виглядає наклеєним.
        Масштаб компенсує кути, які відходять при повороті. */
-    transform: rotate(4.1deg) scale(1.22);
+    /* Не просто поворот: телефон на фото ще й трохи розвернутий у
+       просторі, тому вертикаль і горизонталь екрана нахилені
+       по-різному. Матриця повторює обидва нахили. */
+    transform: matrix(1.240, 0.1010, -0.1228, 1.240, 0, 0);
     opacity: 0;
     animation: shot-cycle 20s linear infinite;
   }
