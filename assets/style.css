@@ -1095,6 +1095,11 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 @media (min-width: 1000px) {
   .page-home .hero-row { position: static; }
 
+  /* Телефон має 94% висоти цього контейнера, тож саме він визначає,
+     наскільки великим може бути корпус. Мінімальна висота дає запас,
+     не обрізаючи нічого: герой просто стає трохи вищим. */
+  .page-home .hero > .container { min-height: min(68vh, 560px); }
+
   .hero-phone {
     display: block;
     position: absolute;
@@ -1104,18 +1109,45 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     top: 50%;
     bottom: auto;
     transform: translateY(-50%);
-    height: min(86%, 64vh, 520px);
+    height: min(94%, 72vh, 600px);
     width: auto;
     aspect-ratio: 780 / 1211;
     pointer-events: none;
     z-index: 2;
   }
 
+  /* Перехід між кадрами не має читатись як «перемикання». Нижній кадр
+     завжди видимий на повну, а два верхні по черзі проявляються над ним.
+     Рука на всіх трьох однакова, тому під час переходу змінюється лише
+     вміст екрана — сама рука ніде не блимає і не блякне. */
   .hero-phone .shot {
     position: absolute;
     inset: 0;
     opacity: 0;
-    animation: shot-cycle 15s linear infinite;
+  }
+
+  .hero-phone .shot.s1 { opacity: 1; z-index: 1; }
+
+  .hero-phone .shot.s2 {
+    z-index: 2;
+    animation: fade-2 18s ease-in-out infinite;
+  }
+
+  .hero-phone .shot.s3 {
+    z-index: 3;
+    animation: fade-3 18s ease-in-out infinite;
+  }
+
+  @keyframes fade-2 {
+    0%, 28%   { opacity: 0; }
+    34%, 70%  { opacity: 1; }
+    76%, 100% { opacity: 0; }
+  }
+
+  @keyframes fade-3 {
+    0%, 61%  { opacity: 0; }
+    67%, 93% { opacity: 1; }
+    100%     { opacity: 0; }
   }
 
   .hero-phone .shot img {
@@ -1124,17 +1156,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
     width: auto;
   }
 
-  .shot.s1 { animation-delay: 0s; }
-  .shot.s2 { animation-delay: 5s; }
-  .shot.s3 { animation-delay: 10s; }
 
-  @keyframes shot-cycle {
-    0%   { opacity: 0; }
-    3%   { opacity: 1; }
-    30%  { opacity: 1; }
-    33%  { opacity: 0; }
-    100% { opacity: 0; }
-  }
 
   .page-home .hero-eye {
     display: block;
@@ -1160,7 +1182,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 /* На вужчих і низьких вікнах міняється розмір спільного контейнера —
    самі композиції всередині лишаються недоторканими. */
 @media (min-width: 1000px) and (max-height: 700px) {
-  .hero-phone { height: min(88%, 70vh, 430px); }
+  .hero-phone { height: min(96%, 82vh, 520px); }
 }
 
 @media (max-height: 420px) {
