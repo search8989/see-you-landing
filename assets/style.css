@@ -723,3 +723,17 @@ section > .container > p,
   .commission-table tbody tr td:first-child::before { content: none; }
   .compare-table td.see-you { background: none; }
 }
+
+/* ── блок «Чому це для тебе»: без діри в останньому ряду ── */
+.why-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 18px; margin-top: 26px;
+}
+.why-grid .why-card {
+  flex: 1 1 260px; max-width: 340px;
+}
+@media (min-width: 1000px) {
+  .why-grid .why-card { flex: 0 1 calc((100% - 36px) / 3); max-width: none; }
+}
+h2 + .why-grid { margin-top: 28px; }
+.why-grid + p, .why-grid + .note { margin-top: 30px; }
