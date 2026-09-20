@@ -1306,3 +1306,7 @@ section > .container > p.price-note, .price-note { max-width: none; text-align: 
 .page-map .map-section { padding-top: clamp(14px, 2vw, 24px); border-top: 0; }
 .page-map .map-section .region-tabs { margin-bottom: 18px; }
 
+/* Кнопки у фінальному блоці стоять по центру рамки, а не з лівого краю. */
+.cta-final > .container > * { margin-inline: auto; }
+.cta-final .hero-ctas { justify-content: center; }
+.cta-final .section-head { margin-inline: auto; }
