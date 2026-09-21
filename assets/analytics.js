@@ -54,7 +54,7 @@
     var where = location.pathname;
 
     if (href.indexOf('role=customer') > -1) track('click_order', { label: label, page: where });
-    else if (href.indexOf('performer-application') > -1) track('click_earn', { label: label, page: where });
+    else if (href.indexOf('performer-application') > -1 || href.indexOf('/vykonavtsyam') > -1 || href.indexOf('role=performer') > -1) track('click_earn', { label: label, page: where });
     else if (href.indexOf(APP) > -1) track('click_app', { label: label, page: where });
     else if (href.indexOf('mailto:') === 0) track('click_email', { page: where });
   }, true);
@@ -75,6 +75,21 @@
     if (ok) {
       gtag('consent', 'update', { analytics_storage: 'granted' });
       load();
+    }
+    else {
+      // Відмова після згоди: GA вже міг завантажитись, тож відкликаємо явно,
+      // вимикаємо збір і прибираємо його cookies — не лише ховаємо банер.
+      gtag('consent', 'update', { analytics_storage: 'denied' });
+      window['ga-disable-' + GA] = true;
+      try {
+        document.cookie.split(';').forEach(function (c) {
+          var n = c.split('=')[0].trim();
+          if (n.indexOf('_ga') === 0) {
+            document.cookie = n + '=; Max-Age=0; path=/';
+            document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname.replace(/^www\./, '');
+          }
+        });
+      } catch (e) {}
     }
     if (box) { box.remove(); box = null; }
   }

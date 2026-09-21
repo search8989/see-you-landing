@@ -82,7 +82,7 @@
     for (var key in BY_REGION) {
       if (BY_REGION[key].indexOf(c) > -1) return key;
     }
-    return 'eu';   // невідома країна — показуємо в Європі, щоб не загубити
+    return '';     // невідома країна — не вгадуємо регіон, місто піде у примітку
   }
 
   /* Зведення з бекенда: у яких містах уже є підтверджені виконавці.
@@ -95,7 +95,8 @@
         var out = { ua: [], eu: [], as: [], af: [], na: [], sa: [], oc: [] }, unknown = [];
         d.cities.forEach(function (c) {
           var pt = GEO[(c.city || '').trim().toLowerCase()];
-          if (pt) out[regionOf(c.country)].push({ name: c.city, lat: pt[0], lon: pt[1], count: c.count });
+          var rg = regionOf(c.country);
+          if (pt && rg) out[rg].push({ name: c.city, lat: pt[0], lon: pt[1], count: c.count });
           else if (c.city) unknown.push(c.city);
         });
         out._unknown = unknown;
