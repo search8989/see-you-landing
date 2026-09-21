@@ -40,7 +40,9 @@
       'main.container > .free-box',
       'main.about > section',
       'body > h2',
-      'body > .cards'
+      'body > .cards',
+      '.wrap-main > h2',
+      '.wrap-main > .cards'
     ].join(',');
 
     var list = document.querySelectorAll(sel);

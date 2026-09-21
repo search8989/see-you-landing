@@ -495,7 +495,8 @@ p > svg, li > svg, strong + svg, .note > svg, .note-box > svg,
 }
 
 /* ── сторінки без .nav: контент теж має поля ─────────────── */
-body > h1, body > h2, body > p, body > ul, body > ol, body > table {
+body > h1, body > h2, body > p, body > ul, body > ol, body > table,
+.wrap-main > h1, .wrap-main > h2, .wrap-main > p, .wrap-main > ul, .wrap-main > ol, .wrap-main > table {
   max-width: 1140px; margin-inline: auto; padding-inline: 20px;
 }
 

@@ -105,7 +105,7 @@
       .catch(function () { return null; });
   }
 
-  var map = null, layer = null, loading = false;
+  var map = null, layer = null, loading = false, failed = false;
 
   function load(cb) {
     if (window.L) return cb();
@@ -150,7 +150,7 @@
       }).addTo(layer).bindTooltip(c.count ? c.name + ' \u2014 ' + c.count : c.name, { direction: 'top' });
     });
 
-    if (empty) empty.hidden = list.length > 0;
+    if (empty) empty.hidden = failed ? false : list.length > 0;
     setTimeout(function () { map.invalidateSize(); }, 60);
   }
 
@@ -178,6 +178,12 @@
           note.textContent = 'Також є виконавці: ' + un.join(', ');
           empty.parentNode.appendChild(note);
         }
+      }
+      else if (empty) {
+        // Дані не завантажились: це не «виконавців немає», а збій —
+        // кажемо про нього прямо й не показуємо порожній регіон як факт.
+        empty.textContent = 'Не вдалося оновити дані карти. Оновіть сторінку трохи згодом.';
+        failed = true;
       }
       select('ua');
     });
