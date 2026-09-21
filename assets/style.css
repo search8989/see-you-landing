@@ -1465,7 +1465,7 @@ html { scroll-behavior: smooth; }
   .page-home .hero-phone,
   .page-home .hero-phone.rise {
     display: block; position: absolute; z-index: 0;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    top: -52px; left: 50%; transform: translateX(-50%);
     height: 96%; width: auto; aspect-ratio: 780 / 1211;
     opacity: .3; filter: blur(1.5px); animation: none; pointer-events: none;
     -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
