@@ -175,7 +175,7 @@
         if (un.length && empty && empty.parentNode) {
           var note = document.createElement('p');
           note.className = 'map-note';
-          note.textContent = 'Також є виконавці: ' + un.join(', ');
+          note.textContent = 'Також є користувачі: ' + un.join(', ');
           empty.parentNode.appendChild(note);
         }
       }
