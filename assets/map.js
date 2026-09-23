@@ -172,6 +172,22 @@
     document.head.appendChild(js);
   }
 
+  /* Країна-агресор і окупований Крим: росія — суцільний червоний,
+     Крим — червона штриховка з підписом. Контури з Natural Earth (110m),
+     Крим із полігона росії вирізано і збережено окремо. */
+  var overlaysDone = false;
+  function drawOverlays() {
+    if (overlaysDone || !map) return;
+    overlaysDone = true;
+    fetch('/assets/ru.geo.json').then(function (r) { return r.json(); }).then(function (gj) {
+      L.geoJSON(gj, { style: { color: '#B3261E', weight: 1, fillColor: '#B3261E', fillOpacity: .38 }, interactive: false }).addTo(map);
+    }).catch(function () {});
+    fetch('/assets/crimea.geo.json').then(function (r) { return r.json(); }).then(function (gj) {
+      L.geoJSON(gj, { style: { color: '#B3261E', weight: 1.5, dashArray: '4 3', fillColor: '#B3261E', fillOpacity: .18 } })
+        .bindTooltip('Крим — тимчасово окупована територія України', { sticky: true }).addTo(map);
+    }).catch(function () {});
+  }
+
   function draw(region) {
     var view = VIEW[region] || VIEW.ua;
     var list = CITIES[region] || [];
@@ -186,6 +202,7 @@
       }).addTo(map);
     }
     map.setView(view.center, view.zoom);
+    drawOverlays();
 
     if (layer) map.removeLayer(layer);
     layer = L.layerGroup().addTo(map);
