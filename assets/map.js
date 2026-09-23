@@ -144,7 +144,7 @@
           // Спершу координати й код країни від сервера; словник — запас,
           // якщо геокодування недоступне.
           var pt = (typeof c.lat === 'number' && typeof c.lon === 'number')
-            ? [c.lat, c.lon] : GEO[(c.city || '').trim().toLowerCase()];
+            ? [c.lat, c.lon] : geoOf(c.city);
           var rg = (c.country_code && CODE_REGION[String(c.country_code).toUpperCase()]) || regionOf(c.country);
           if (pt && rg) out[rg].push({ name: c.city, lat: pt[0], lon: pt[1], count: c.count });
           else if (c.city) unknown.push(c.city);
@@ -172,19 +172,25 @@
     document.head.appendChild(js);
   }
 
-  /* Країна-агресор і окупований Крим: росія — суцільний червоний,
+  /* Країни-агресори і окупований Крим: росія та білорусь — суцільний червоний,
      Крим — червона штриховка з підписом. Контури з Natural Earth (110m),
      Крим із полігона росії вирізано і збережено окремо. */
   var overlaysDone = false;
   function drawOverlays() {
     if (overlaysDone || !map) return;
     overlaysDone = true;
+    var aggressor = { color: '#B3261E', weight: 1, fillColor: '#B3261E', fillOpacity: .38 };
     fetch('/assets/ru.geo.json').then(function (r) { return r.json(); }).then(function (gj) {
-      L.geoJSON(gj, { style: { color: '#B3261E', weight: 1, fillColor: '#B3261E', fillOpacity: .38 }, interactive: false }).addTo(map);
+      L.geoJSON(gj, { style: aggressor })
+        .bindTooltip('росія — країна-агресор. Сервіс тут не працює і не працюватиме.', { sticky: true }).addTo(map);
+    }).catch(function () {});
+    fetch('/assets/by.geo.json').then(function (r) { return r.json(); }).then(function (gj) {
+      L.geoJSON(gj, { style: aggressor })
+        .bindTooltip('білорусь — співучасник агресії. Сервіс тут не працює.', { sticky: true }).addTo(map);
     }).catch(function () {});
     fetch('/assets/crimea.geo.json').then(function (r) { return r.json(); }).then(function (gj) {
       L.geoJSON(gj, { style: { color: '#B3261E', weight: 1.5, dashArray: '4 3', fillColor: '#B3261E', fillOpacity: .18 } })
-        .bindTooltip('Крим — тимчасово окупована територія України', { sticky: true }).addTo(map);
+        .bindTooltip('Крим — тимчасово окупована територія України. Повернеться — і сервіс буде тут.', { sticky: true }).addTo(map);
     }).catch(function () {});
   }
 
