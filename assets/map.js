@@ -85,6 +85,18 @@
     return '';     // невідома країна — не вгадуємо регіон, місто піде у примітку
   }
 
+  /* Регіон за ISO-кодом країни від сервера (Google Geocoding): не залежить
+     від того, як людина написала країну в профілі. */
+  var CODE_REGION = {
+    UA: 'ua',
+    AL:'eu',AD:'eu',AT:'eu',BA:'eu',BE:'eu',BG:'eu',BY:'eu',CH:'eu',CY:'eu',CZ:'eu',DE:'eu',DK:'eu',EE:'eu',ES:'eu',FI:'eu',FR:'eu',GB:'eu',GR:'eu',HR:'eu',HU:'eu',IE:'eu',IS:'eu',IT:'eu',LI:'eu',LT:'eu',LU:'eu',LV:'eu',MC:'eu',MD:'eu',ME:'eu',MK:'eu',MT:'eu',NL:'eu',NO:'eu',PL:'eu',PT:'eu',RO:'eu',RS:'eu',SE:'eu',SI:'eu',SK:'eu',SM:'eu',XK:'eu',
+    TR:'as',GE:'as',AM:'as',AZ:'as',AE:'as',IL:'as',JO:'as',QA:'as',SA:'as',TH:'as',JP:'as',KR:'as',CN:'as',IN:'as',ID:'as',VN:'as',MY:'as',SG:'as',PH:'as',UZ:'as',KZ:'as',BD:'as',KG:'as',TJ:'as',LK:'as',NP:'as',PK:'as',IQ:'as',IR:'as',LB:'as',OM:'as',KW:'as',BH:'as',TW:'as',HK:'as',MN:'as',
+    EG:'af',MA:'af',TN:'af',DZ:'af',ZA:'af',KE:'af',NG:'af',GH:'af',ET:'af',TZ:'af',SN:'af',
+    US:'na',CA:'na',MX:'na',PA:'na',CR:'na',CU:'na',DO:'na',GT:'na',HN:'na',JM:'na',
+    BR:'sa',AR:'sa',CL:'sa',CO:'sa',PE:'sa',UY:'sa',PY:'sa',EC:'sa',BO:'sa',VE:'sa',
+    AU:'oc',NZ:'oc',FJ:'oc'
+  };
+
   /* Зведення з бекенда: у яких містах уже є підтверджені виконавці.
      Сайт нічого не знає про самих людей — лише «місто + скільки». */
   function fetchCoverage() {
@@ -94,8 +106,11 @@
         if (!d || !d.cities) return null;
         var out = { ua: [], eu: [], as: [], af: [], na: [], sa: [], oc: [] }, unknown = [];
         d.cities.forEach(function (c) {
-          var pt = GEO[(c.city || '').trim().toLowerCase()];
-          var rg = regionOf(c.country);
+          // Спершу координати й код країни від сервера; словник — запас,
+          // якщо геокодування недоступне.
+          var pt = (typeof c.lat === 'number' && typeof c.lon === 'number')
+            ? [c.lat, c.lon] : GEO[(c.city || '').trim().toLowerCase()];
+          var rg = (c.country_code && CODE_REGION[String(c.country_code).toUpperCase()]) || regionOf(c.country);
           if (pt && rg) out[rg].push({ name: c.city, lat: pt[0], lon: pt[1], count: c.count });
           else if (c.city) unknown.push(c.city);
         });
