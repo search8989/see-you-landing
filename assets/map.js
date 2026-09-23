@@ -17,7 +17,7 @@
 
   var VIEW = {
     ua: { center: [48.6, 31.2], zoom: 5 },
-    eu: { center: [52.0, 15.0], zoom: 4 },
+    eu: { center: [50.0, 20.0], zoom: 4 },
     as: { center: [34.0, 80.0], zoom: 3 },
     af: { center: [2.0, 20.0], zoom: 3 },
     na: { center: [43.0, -100.0], zoom: 3 },
@@ -104,7 +104,7 @@
 
   function regionOf(country) {
     var c = (country || '').trim().toLowerCase();
-    if (!c || c === 'україна') return 'ua';
+    if (!c || c === 'україна') return 'eu';
     for (var key in BY_REGION) {
       if (BY_REGION[key].indexOf(c) > -1) return key;
     }
@@ -123,7 +123,7 @@
   /* Регіон за ISO-кодом країни від сервера (Google Geocoding): не залежить
      від того, як людина написала країну в профілі. */
   var CODE_REGION = {
-    UA: 'ua',
+    UA: 'eu',
     AL:'eu',AD:'eu',AT:'eu',BA:'eu',BE:'eu',BG:'eu',BY:'eu',CH:'eu',CY:'eu',CZ:'eu',DE:'eu',DK:'eu',EE:'eu',ES:'eu',FI:'eu',FR:'eu',GB:'eu',GR:'eu',HR:'eu',HU:'eu',IE:'eu',IS:'eu',IT:'eu',LI:'eu',LT:'eu',LU:'eu',LV:'eu',MC:'eu',MD:'eu',ME:'eu',MK:'eu',MT:'eu',NL:'eu',NO:'eu',PL:'eu',PT:'eu',RO:'eu',RS:'eu',SE:'eu',SI:'eu',SK:'eu',SM:'eu',XK:'eu',
     TR:'as',GE:'as',AM:'as',AZ:'as',AE:'as',IL:'as',JO:'as',QA:'as',SA:'as',TH:'as',JP:'as',KR:'as',CN:'as',IN:'as',ID:'as',VN:'as',MY:'as',SG:'as',PH:'as',UZ:'as',KZ:'as',BD:'as',KG:'as',TJ:'as',LK:'as',NP:'as',PK:'as',IQ:'as',IR:'as',LB:'as',OM:'as',KW:'as',BH:'as',TW:'as',HK:'as',MN:'as',
     EG:'af',MA:'af',TN:'af',DZ:'af',ZA:'af',KE:'af',NG:'af',GH:'af',ET:'af',TZ:'af',SN:'af',
@@ -228,7 +228,7 @@
         empty.textContent = 'Не вдалося оновити дані карти. Оновіть сторінку трохи згодом.';
         failed = true;
       }
-      select('ua');
+      select('eu');
     });
   }
 
